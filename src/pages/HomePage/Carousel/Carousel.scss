@@ -1,0 +1,19 @@
+.carousel__wrapper {
+  position: relative;
+  height: 680px;
+}
+
+.carousel__background {
+  background-image: url("https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049970/bg-hero-5-1792-x1.png");
+  // width: 100%;
+  // height: 600px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}

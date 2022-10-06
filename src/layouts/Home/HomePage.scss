@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "Macan";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://npm-assets.fiverrcdn.com/assets/uploads/macan-regular.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Macan";
+  font-weight: 600;
+  font-style: normal;
+  src: url("https://npm-assets.fiverrcdn.com/assets/uploads/macan-semibold.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Macan";
+  font-weight: 700;
+  font-style: normal;
+  src: url("https://npm-assets.fiverrcdn.com/assets/uploads/macan-bold.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Macan";
+  font-weight: 300;
+  font-style: normal;
+  src: url("https://npm-assets.fiverrcdn.com/assets/uploads/macan-light.woff2")
+    format("woff2");
+}
+body {
+  background-color: #fff;
+  color: #62646a;
+  font: 400 16px/24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+  position: relative;
+  width: 100%;
+}
+ul {
+  list-style-type: none;
+}
+.max-width-container {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 24px 24px 48px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  .max-width-container {
+    margin: 0;
+    padding: 32px 32px 64px;
+  }
+}
+@media only screen and (min-width: 900px) {
+}
+
+@media only screen and (min-width: 1160px) {
+  .max-width-container {
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 0 32px;
+  }
+}
