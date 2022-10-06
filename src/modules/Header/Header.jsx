@@ -12,9 +12,11 @@ export default function Header() {
             <FiverLogo />
           </a>
           <div className="header__searchbar">
-            <HeaderSearch />
+            <HeaderSearch/>
           </div>
-          <HeaderList />
+          <div className="header__list">
+            <HeaderList/>
+          </div>
         </div>
       </div>
     </div>
