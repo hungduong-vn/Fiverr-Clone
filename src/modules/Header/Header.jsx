@@ -15,7 +15,7 @@ export default function Header() {
             <HeaderSearch/>
           </div>
           <div className="header__list">
-            {/* <HeaderList/> */}
+            <HeaderList/>
           </div>
         </div>
       </div>
