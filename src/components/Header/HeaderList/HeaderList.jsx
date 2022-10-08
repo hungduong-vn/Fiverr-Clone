@@ -6,24 +6,37 @@ export default function HeaderList() {
     <nav className="header__nav d-flex">
       <ul className="header__items">
         <li className="header__item">
-          <a href="/">Fiverr Business</a>
-        </li>
-        <li className="header__item">
-          <a href="/">Explore</a>
-        </li>
-        <li className="header__item">
-          <a href="/">
-            <GlobeIcon /> English
+          <a className="header__item__text header__business" href="/">
+            Fiverr Business
           </a>
         </li>
         <li className="header__item">
-          <a href="/">$ USD</a>
+          <a className="header__item__text" href="/">
+            Explore
+          </a>
         </li>
         <li className="header__item">
-          <a href="/">Become a Seller</a>
+          <a className="header__item__text d-flex" href="/">
+            <span className="header__globe__icon d-flex align-items-center">
+              <GlobeIcon />
+            </span>{" "}
+            English
+          </a>
         </li>
         <li className="header__item">
-          <a href="/">Sign In</a>
+          <a className="header__item__text" href="/">
+            $ USD
+          </a>
+        </li>
+        <li className="header__item">
+          <a className="header__item__text" href="/">
+            Become a Seller
+          </a>
+        </li>
+        <li className="header__item">
+          <a className="header__item__text" href="/">
+            Sign in
+          </a>
         </li>
         <li className="header__item">
           <a href="">

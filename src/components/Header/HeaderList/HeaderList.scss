@@ -1,6 +1,6 @@
 .header__nav {
   width: 100%;
-  margin-left: 32px;
+  padding-left: 32px;
 }
 .header__items {
   margin: 0;
@@ -15,10 +15,64 @@
   &:last-child {
     padding-right: 0;
   }
+  &:hover {
+    svg {
+      fill: #1dbf73;
+    }
+  }
+}
+.header__item__text {
+  color: #74767e;
+  &.header__business {
+    color: #1e1692;
+    &:hover {
+      color: #1dbf73;
+    }
+  }
+}
+.header__globe__icon {
+  padding-right: 8px;
+  font-size: 14px;
+  color: #62646a;
+  .title-icon {
+    background: none;
+    border: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+  & svg {
+    fill: #62646a;
+    float: left;
+    height: 100%;
+    width: 100%;
+  }
 }
 .join__btn {
   padding: 7px 20px;
   font-weight: 700;
   font-size: 14px;
   line-height: 100%;
+  border-color: rgb(29, 191, 115);
+  color: rgb(29, 191, 115);
+  &:hover {
+    background-color: #19a463;
+    border-color: #19a463;
+    color: #fff;
+  }
+}
+.header__transparent {
+  .header__item__text {
+    color: #fff !important;
+  }
+  .header__globe__icon svg {
+    fill: #fff;
+  }
+  .join__btn {
+    border-color: #fff;
+    color: #fff;
+    &:hover {
+      border-color: rgb(29, 191, 115);
+    }
+  }
 }

@@ -5,11 +5,13 @@
 }
 a,
 a:hover {
+  text-decoration: none;
+}
+a:hover {
   color: #1dbf73;
 }
 
 a {
-  text-decoration: none;
   -webkit-transition: color 0.2s;
   -o-transition: color 0.2s;
   transition: color 0.2s;
