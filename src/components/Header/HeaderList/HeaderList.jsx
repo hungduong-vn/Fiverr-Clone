@@ -5,17 +5,17 @@ export default function HeaderList() {
   return (
     <nav className="header__nav d-flex">
       <ul className="header__items">
-        <li className="header__item">
+        <li className="header__item hide-md">
           <a className="header__item__text header__business" href="/">
             Fiverr Business
           </a>
         </li>
-        <li className="header__item">
+        <li className="header__item hide-md">
           <a className="header__item__text" href="/">
             Explore
           </a>
         </li>
-        <li className="header__item">
+        <li className="header__item hide-lg">
           <a className="header__item__text d-flex" href="/">
             <span className="header__globe__icon d-flex align-items-center">
               <GlobeIcon />
@@ -23,17 +23,17 @@ export default function HeaderList() {
             English
           </a>
         </li>
-        <li className="header__item">
+        <li className="header__item hide-lg">
           <a className="header__item__text" href="/">
             $ USD
           </a>
         </li>
-        <li className="header__item">
+        <li className="header__item hide-md">
           <a className="header__item__text" href="/">
             Become a Seller
           </a>
         </li>
-        <li className="header__item">
+        <li className="header__item hide-sm">
           <a className="header__item__text" href="/">
             Sign in
           </a>

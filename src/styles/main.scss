@@ -1,0 +1,30 @@
+@media only screen and (min-width: 1160px) {
+  .hide-xl {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1159px) {
+  .hide-lg {
+    display: none;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .show-md {
+    display: none;
+  }
+}
+@media only screen and (max-width: 899px) {
+  .hide-md {
+    display: none;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .show-sm {
+    display: none;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .hide-sm {
+    display: none;
+  }
+}

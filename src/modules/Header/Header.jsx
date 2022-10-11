@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HeaderList from "../../components/Header/HeaderList/HeaderList";
 import HeaderSearch from "../../components/Header/HeaderSearch/HeaderSearch";
+import NavShowBtn from "../../components/Header/NavShowBtn/NavShowBtn";
 import FiverLogo from "../../components/Svg/FiverLogo";
 import "./Header.scss";
 export default function Header() {
@@ -27,10 +28,11 @@ export default function Header() {
     <header className="header homeHeader header__transparent header__hidden">
       <div className="header__wrapper">
         <div className="header__row max-width-container">
+          <NavShowBtn/>
           <a className="header__logo" href="/">
             <FiverLogo />
           </a>
-          <div className="header__searchbar">
+          <div className="header__searchbar hide-sm">
             <HeaderSearch />
           </div>
           <div className="header__list">

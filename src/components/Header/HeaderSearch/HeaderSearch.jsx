@@ -6,11 +6,11 @@ export default function HeaderSearch() {
       <form className="search__form d-flex">
         <input
           type="text"
-          className="form-control search__input"
+          className="form-control search__input hide-md"
           aria-describedby="helpId"
           placeholder="What service are you looking for today?"
         />
-        <button className="search__btn">
+        <button className="search__btn hide-md">
           <span
             className="search__icon"
             style={{ width: 16, height: 16 }}
@@ -26,6 +26,12 @@ export default function HeaderSearch() {
             </svg>
           </span>
         </button>
+        <input
+          type="text"
+          className="form-control search__input show-md hide-sm"
+          aria-describedby="helpId"
+          placeholder="Find services"
+        />
       </form>
     </div>
   );

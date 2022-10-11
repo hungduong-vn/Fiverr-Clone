@@ -1,0 +1,20 @@
+.navBtn {
+  background: none;
+  border: 0;
+  margin-right: 15px;
+  outline: none;
+  margin-top: 8px;
+}
+.header__transparent rect{
+  fill: #fff;
+}
+@media only screen and (min-width: 600px) {
+  .navBtn {
+    margin-top: 0;
+  }
+}
+@media only screen and (min-width: 1160px) {
+  .navBtn{
+    display: none;
+  }
+}
