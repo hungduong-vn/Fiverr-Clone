@@ -1,4 +1,6 @@
 import React from "react";
+import SignInBtn from "../../SIgnInBtn/SignInBtn";
+import SignUpBtn from "../../SignUpBtn/SignUpBtn";
 import GlobeIcon from "../../Svg/GlobeIcon";
 import "./HeaderList.scss";
 export default function HeaderList() {
@@ -35,12 +37,12 @@ export default function HeaderList() {
         </li>
         <li className="header__item hide-sm">
           <a className="header__item__text" href="/">
-            Sign in
+            <SignInBtn innerText="Sign in"/>
           </a>
         </li>
         <li className="header__item">
           <a href="">
-            <button className="join__btn btn btn-outline-success">Join</button>
+            <SignUpBtn innerText="Join" className="join__btn btn btn-outline-success"/>
           </a>
         </li>
       </ul>

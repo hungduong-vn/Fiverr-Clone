@@ -11,7 +11,7 @@ export default function Header() {
   };
   useEffect(() => {
     const header = document.querySelector("header");
-    console.log({ header });
+    // console.log({ header });
     // console.log(scrollY);
     if (scrollY > 0) {
       header.classList.remove("header__transparent");
@@ -24,6 +24,7 @@ export default function Header() {
       header.classList.add("header__transparent");
     }
   }, [scrollY]);
+
   return (
     <header className="header homeHeader header__transparent header__hidden">
       <div className="header__wrapper">

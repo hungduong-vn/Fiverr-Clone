@@ -1,8 +1,14 @@
 import React from "react";
-import './NavShowBtn.scss'
+import { useDispatch } from "react-redux";
+import { setShowSideBar } from "../../../store/actions/layout.actions";
+import "./NavShowBtn.scss";
 export default function NavShowBtn() {
+  const dispatch = useDispatch();
+  const showSideBar = () => {
+    dispatch(setShowSideBar(true));
+  };
   return (
-    <button className="navBtn">
+    <button className="navBtn" onClick={showSideBar}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="23"
