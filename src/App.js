@@ -30,7 +30,7 @@ function App() {
   return (
     <div id="HOME">
       <HomePage />
-      {layoutState.showSideBar && <HomeSideBar/>}
+      <HomeSideBar isShown={layoutState.showSideBar}/>
     </div>
   );
 }
