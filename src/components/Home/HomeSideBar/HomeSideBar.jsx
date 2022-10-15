@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setShowSideBar } from "../../store/actions/layout.actions";
-import { SideBarStyle } from "../../styles/SideBarStyled/SideBarStyled";
+import { setShowSideBar } from "../../../store/actions/layout.actions";
+import { SideBarStyle } from "../../../styles/Home/SideBarStyled/SideBarStyled";
 import "./HomeSideBar.scss";
 import SideBarContent from "./SideBarContent/SideBarContent";
 export default function HomeSideBar({ isShown }) {

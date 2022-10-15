@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import HomeSideBar from "./components/HomeSideBar/HomeSideBar";
+import HomeSideBar from "./components/Home/HomeSideBar/HomeSideBar";
 import HomePage from "./layouts/Home/HomePage";
 import "./styles/main.scss";
 

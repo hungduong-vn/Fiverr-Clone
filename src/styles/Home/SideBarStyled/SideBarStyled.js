@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { styles } from "../../constants/styles";
+import { styles } from "../../../constants/styles";
 
 export const SideBarStyle = styled.div`
   position: fixed;

@@ -1,7 +1,10 @@
 import React from "react";
+import GlobeIcon from "../../../Svg/GlobeIcon";
 import SignInBtn from "../../SIgnInBtn/SignInBtn";
 import SignUpBtn from "../../SignUpBtn/SignUpBtn";
-import GlobeIcon from "../../Svg/GlobeIcon";
+
+
+
 
 export default function SideBarContent() {
   return (
