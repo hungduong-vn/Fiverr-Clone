@@ -9,10 +9,20 @@ export const CategoriesNavItem = styled.li`
 
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  &.firstCategoriesNavItem{
-    padding-left: 0;
+  &.firstCategoriesNavItem {
+    @media only screen and (min-width: 600px) {
+      padding-left: 30px;
+    }
+    @media only screen and (min-width: 1160px) {
+      padding-left: 0;
+    }
   }
-  &.lastCategoriesNavItem{
-    padding-right: 0;
+  &.lastCategoriesNavItem {
+    @media only screen and (min-width: 600px) {
+      padding-right: 30px;
+    }
+    @media only screen and (min-width: 1160px) {
+      padding-right: 0;
+    }
   }
 `;

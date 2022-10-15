@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import HomeSideBar from "./components/Home/HomeSideBar/HomeSideBar";
 import HomePage from "./layouts/Home/HomePage";
+import { setOverflowNavbar } from "./store/actions/layout.actions";
 import "./styles/main.scss";
 
 function App() {
@@ -24,9 +25,15 @@ function App() {
     } else {
       homeEle.className = "view-xl";
     }
+    if(viewWidth < 1267) {
+      dispatch(setOverflowNavbar(true));
+    } else{
+      dispatch(setOverflowNavbar(false));
+    }
   }, [viewWidth]);
 
   const layoutState = useSelector(state => state.layoutReducer);
+  const dispatch = useDispatch();
   return (
     <div id="HOME">
       <HomePage />

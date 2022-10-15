@@ -16,8 +16,12 @@ a {
   -o-transition: color 0.2s;
   transition: color 0.2s;
 }
-
-ul{
+button {
+  background: none;
+  border: 0;
+  font: inherit;
+}
+ul {
   list-style: none;
   list-style-image: none;
 }
