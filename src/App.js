@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Footer from "./components/Home/Footer/Footer";
 import HomeSideBar from "./components/Home/HomeSideBar/HomeSideBar";
 import HomePage from "./layouts/Home/HomePage";
+import Header from "./modules/Header/Header";
 import { setOverflowNavbar } from "./store/actions/layout.actions";
 import "./styles/main.scss";
 
@@ -25,19 +27,21 @@ function App() {
     } else {
       homeEle.className = "view-xl";
     }
-    if(viewWidth < 1267) {
+    if (viewWidth < 1267) {
       dispatch(setOverflowNavbar(true));
-    } else{
+    } else {
       dispatch(setOverflowNavbar(false));
     }
   }, [viewWidth]);
 
-  const layoutState = useSelector(state => state.layoutReducer);
+  const layoutState = useSelector((state) => state.layoutReducer);
   const dispatch = useDispatch();
   return (
     <div id="HOME">
+      <Header />
       <HomePage />
-      <HomeSideBar isShown={layoutState.showSideBar}/>
+      <HomeSideBar isShown={layoutState.showSideBar} />
+      <Footer />
     </div>
   );
 }
