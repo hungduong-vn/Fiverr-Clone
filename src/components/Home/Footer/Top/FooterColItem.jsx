@@ -13,6 +13,11 @@ const Styled = styled.li`
   p {
     color: ${styles.colorPale};
     font-size: 0.875rem;
+    margin: 0;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
