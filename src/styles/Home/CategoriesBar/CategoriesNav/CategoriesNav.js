@@ -18,4 +18,5 @@ export const CatgoriesList = styled.ul`
   margin: 0 auto;
   max-width: 1400px;
   padding: 0;
+  transition: all 0.2s;
 `;

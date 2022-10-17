@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import { StyledCategoriesBar } from "../../../../styles/Home/CategoriesBar/CategoriesBar";
 import { CategoriesNav, CatgoriesList } from "../../../../styles/Home/CategoriesBar/CategoriesNav/CategoriesNav";
@@ -7,12 +7,13 @@ import SlideBtn from "./SlideBtn";
 
 export default function CategoriesBar({showCategories}) {
   const {overflowNav} = useSelector(state => state.layoutReducer);
+  const navListRef = useRef(null);
   return (
     <div id="categoriesBar">
       <StyledCategoriesBar className={`${showCategories ?'show':''}`}>
         <CategoriesNav className={`${overflowNav ?'overflow':''}`}>
-          {overflowNav && <SlideBtn isStart={true}/>}
-          <CatgoriesList>
+          {overflowNav && <SlideBtn navListRef={navListRef} isStart={true}/>}
+          <CatgoriesList ref={navListRef}>
             <CategoriesNavItem className="firstCategoriesNavItem">Graphics & Design</CategoriesNavItem>
             <CategoriesNavItem>Digital Marketing</CategoriesNavItem>
             <CategoriesNavItem>Writing & Translation</CategoriesNavItem>
