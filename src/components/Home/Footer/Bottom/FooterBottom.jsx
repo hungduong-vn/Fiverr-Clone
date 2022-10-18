@@ -8,8 +8,11 @@ const Wrapper = styled.div`
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  @media screen and (min-width: 600px) {
+    justify-content: space-between;
+  }
   min-width: 0;
+  justify-content: center;
 `;
 
 const SubWrapper = styled.div`
@@ -19,6 +22,7 @@ const SubWrapper = styled.div`
   padding: 16px 0 0;
   -webkit-box-orient: vertical;
   flex-direction: column;
+  width: 100%;
   @media only screen and (min-width: 600px) {
     -webkit-box-orient: horizontal;
     flex-direction: row;
