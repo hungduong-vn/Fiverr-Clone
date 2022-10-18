@@ -24,6 +24,9 @@ const SubWrapper = styled.div`
     flex-direction: row;
     width: auto;
   }
+  .footer-logo {
+    margin-bottom: 7px;
+  }
   .footer-copyright {
     span {
       margin-top: 8px;
