@@ -11,7 +11,7 @@ const Styled = styled.div`
   }
 `;
 export default function FooterList({ list }) {
-  console.log({list});
+  // console.log({list});
   return (
     <Styled>
       <ul>

@@ -21,7 +21,7 @@ const StyledGrid = styled.div`
     }
   }
 `;
-console.log({ columns });
+// console.log({ columns });
 export default function FooterTop() {
   return (
     <StyledGrid className="grid-15">
