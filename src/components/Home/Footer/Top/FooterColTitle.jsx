@@ -4,7 +4,7 @@ import { styles } from "../../../../constants/styles";
 
 const Styled = styled.div`
   padding: 20px 0;
-  .collapsible {
+  .col-title {
     padding-top: 0;
   }
   h6 {
@@ -17,7 +17,7 @@ const Styled = styled.div`
 
 export default function FooterColTitle({ title }) {
   return (
-    <Styled className="collapsible">
+    <Styled className="col-title">
       <h6>{title}</h6>
     </Styled>
   );
