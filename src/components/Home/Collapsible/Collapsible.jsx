@@ -15,11 +15,18 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .collapsible-icon {
+      transition: all 0.3s;
+      ${({ isCollapsed }) => (isCollapsed ? "" : `transform: rotate(180deg)`)}
+    }
+    &:focus {
+      background-color: transparent;
+    }
   }
 
   .active,
   .collapsible:hover {
-    background-color: #ccc;
+    /* background-color: #ccc; */
   }
 
   .content {
@@ -45,7 +52,7 @@ export default function Collapsible({ title, content }) {
     }
   };
   return (
-    <Wrapper>
+    <Wrapper isCollapsed={isCollapsed}>
       <button
         onClick={toggleBtn}
         ref={btnRef}
@@ -53,11 +60,8 @@ export default function Collapsible({ title, content }) {
         className="collapsible"
       >
         {title}
-        {isCollapsed ? (
-          <i className="fas fa-chevron-down"></i>
-        ) : (
-          <i className="fas fa-chevron-up"></i>
-        )}
+        <i className="collapsible-icon fas fa-chevron-down"></i>
+        {/* <i className="fas fa-chevron-up"></i> */}
       </button>
       <div ref={contentRef} className="content">
         {content}
