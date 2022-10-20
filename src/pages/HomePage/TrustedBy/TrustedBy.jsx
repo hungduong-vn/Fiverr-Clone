@@ -14,27 +14,41 @@ const Styled = styled.div`
     padding-right: 1.25rem;
     font-weight: 600;
     color: #b5b6ba;
+    display: none;
   }
-  .trustedBy-list {
+  .trusted-by-list {
     display: flex;
     margin: 0;
     padding: 0 1.5rem;
     height: 70px;
     align-items: center;
     li {
-      padding-right: 3.75rem;
+      padding-right: 1rem;
       &:last-of-type {
-        padding-right: 0;
+        padding-right: 0 !important;
       }
     }
   }
   @media only screen and (min-width: 600px) {
     margin-bottom: 5rem;
+    .trusted-by-list {
+      height: 95px;
+      li {
+        padding-right: 1.5rem;
+      }
+    }
   }
   @media only screen and (min-width: 900px) {
     margin-bottom: 6rem;
-    .trustedBy-list {
-      height: 95px;
+    .trusted-by-list {
+      li {
+        padding-right: 3.75rem;
+      }
+    }
+  }
+  @media only screen and (min-width: 1160px) {
+    .trusted-by-text {
+      display: inline-block;
     }
   }
 `;
@@ -44,7 +58,7 @@ export default function TrustedBy() {
     <Styled>
       <div className="max-width-container">
         <span className="trusted-by-text"> Trusted by:</span>
-        <ul className="trustedBy-list">
+        <ul className="trusted-by-list">
           <li className>
             <picture>
               <source
