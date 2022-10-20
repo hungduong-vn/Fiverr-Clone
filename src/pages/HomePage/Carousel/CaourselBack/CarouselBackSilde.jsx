@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   animation: fade 2s linear;
   transition: opacity 0.9s;
   background-color: ${({ bgColor }) => bgColor};
+
   @media only screen and (min-width: 900px) {
     background-position: 100% 100%;
     display: flex;
@@ -24,6 +25,16 @@ const Wrapper = styled.div`
   @media only screen and (min-width: 1160px) {
     background-image: url(${({ imgLgUrl }) => imgLgUrl});
     background-position: bottom;
+  }
+  .carousel-name {
+    color: #fff;
+    display: inline-block;
+    padding-bottom: 2rem;
+  }
+  .carousel-back-inner {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
 `;
 
@@ -36,7 +47,11 @@ export default function CarouselBackSilde({ content, isShow }) {
       imgSmUrl={imgSmUrl}
       bgColor={bgColor}
     >
-      Item
+      <div className="carousel-back-inner max-width-container">
+        <p className="carousel-name">
+          {name}, <b>{jobTitle}</b>
+        </p>
+      </div>
     </Wrapper>
   );
 }

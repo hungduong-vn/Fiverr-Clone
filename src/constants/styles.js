@@ -1,6 +1,6 @@
 export const styles = {
   colorLight: "#dadbdd",
-  colorPale: "#959799",
+  colorPale: "#95979d",
   colorPrimary: "#62646a",
   colorSecondary: "#74767e",
   colorFiverr: "#1dbf73",

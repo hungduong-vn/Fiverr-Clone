@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./HeaderSearch.scss";
+
 export default function HeaderSearch() {
+  const inputRef = useRef(null);
+  const handleChange = () => {
+    console.log(inputRef.current.value);
+  }
   return (
     <div className="header__search">
       <form className="search__form d-flex">
         <input
+        ref={inputRef}
+        onChange={handleChange}
           type="text"
           className="form-control search__input hide-md"
           aria-describedby="helpId"

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import CarouselBack from "./CaourselBack/CarouselBack";
 import "./Carousel.scss";
+import CarouselSearch from "./CarouselSearch/CarouselSearch";
 
 const Wrapper = styled.div`
   margin-bottom: 0 !important;
@@ -20,8 +21,8 @@ const Wrapper = styled.div`
 export default function Carousel() {
   return (
     <Wrapper className="carousel__wrapper">
-      {/* <div className="carousel__background"></div> */}
       <CarouselBack/>
+      <CarouselSearch/>
     </Wrapper>
   );
 }

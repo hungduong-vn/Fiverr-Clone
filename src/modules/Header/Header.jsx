@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
 import FiverLogo from "../../components/Svg/FiverLogo";
 import CategoriesBar from "./CategoriesBar/CategoriesBar";
-
-
-
-
-
-
 import "./Header.scss";
 import HeaderList from "./HeaderList/HeaderList";
 import HeaderSearch from "./HeaderSearch/HeaderSearch";
 import NavShowBtn from "./NavShowBtn/NavShowBtn";
+
 export default function Header() {
   const [scrollY, setScrollY] = useState(window.scrollY);
   window.onscroll = () => {
