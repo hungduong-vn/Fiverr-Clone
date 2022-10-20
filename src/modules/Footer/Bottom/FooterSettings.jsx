@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { styles } from "../../../../constants/styles";
-import GlobeIcon from "../../../Svg/GlobeIcon";
+import { styles } from "../../../constants/styles";
+import GlobeIcon from "../../../components/Svg/GlobeIcon";
 import AccessibilityIcon from "./AccessibilityIcon";
 
 const Wrapper = styled.section`

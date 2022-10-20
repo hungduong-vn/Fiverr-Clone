@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { styles } from "../../../../constants/styles";
+import { styles } from "../../../constants/styles";
+
 
 const Styled = styled.div`
   padding: 20px 0;

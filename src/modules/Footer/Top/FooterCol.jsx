@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Collapsible from "../../Collapsible/Collapsible";
+import Collapsible from "../../../components/Home/Collapsible/Collapsible";
 import FooterColTitle from "./FooterColTitle";
 import FooterList from "./FooterList";
 

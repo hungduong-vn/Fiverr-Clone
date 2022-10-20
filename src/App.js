@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Footer from "./components/Home/Footer/Footer";
-import HomeSideBar from "./components/Home/HomeSideBar/HomeSideBar";
 import HomePage from "./layouts/Home/HomePage";
+import Footer from "./modules/Footer/Footer";
 import Header from "./modules/Header/Header";
+import HomeSideBar from "./modules/HomeSideBar/HomeSideBar";
 import { setOverflowNavbar } from "./store/actions/layout.actions";
 import "./styles/main.scss";
 

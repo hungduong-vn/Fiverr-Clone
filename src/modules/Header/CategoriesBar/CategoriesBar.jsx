@@ -1,9 +1,13 @@
 import React, { useRef } from "react";
 import { useSelector } from "react-redux";
-import { StyledCategoriesBar } from "../../../../styles/Home/CategoriesBar/CategoriesBar";
-import { CategoriesNav, CatgoriesList } from "../../../../styles/Home/CategoriesBar/CategoriesNav/CategoriesNav";
-import { CategoriesNavItem } from "../../../../styles/Home/CategoriesBar/CategoriesNav/CategoriesNavItem";
+import { StyledCategoriesBar } from "../../../styles/Home/CategoriesBar/CategoriesBar";
+import { CategoriesNav, CatgoriesList } from "../../../styles/Home/CategoriesBar/CategoriesNav/CategoriesNav";
+import { CategoriesNavItem } from "../../../styles/Home/CategoriesBar/CategoriesNav/CategoriesNavItem";
 import SlideBtn from "./SlideBtn";
+
+
+
+
 
 export default function CategoriesBar({showCategories}) {
   const {overflowNav} = useSelector(state => state.layoutReducer);

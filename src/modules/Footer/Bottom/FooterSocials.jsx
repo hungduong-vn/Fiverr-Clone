@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { styles } from "../../../../constants/styles";
+import { styles } from "../../../constants/styles";
 
 const Wrapper = styled.ul`
   display: flex;

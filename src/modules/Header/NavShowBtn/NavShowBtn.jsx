@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setShowSideBar } from "../../../../store/actions/layout.actions";
+import { setShowSideBar } from "../../../store/actions/layout.actions";
+
 
 import "./NavShowBtn.scss";
 export default function NavShowBtn() {

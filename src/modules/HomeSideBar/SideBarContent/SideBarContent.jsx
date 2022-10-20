@@ -1,7 +1,7 @@
 import React from "react";
-import GlobeIcon from "../../../Svg/GlobeIcon";
-import SignInBtn from "../../SIgnInBtn/SignInBtn";
-import SignUpBtn from "../../SignUpBtn/SignUpBtn";
+import GlobeIcon from "../../../components/Svg/GlobeIcon";
+import SignInBtn from "../../../components/Home/SIgnInBtn/SignInBtn";
+import SignUpBtn from "../../../components/Home/SignUpBtn/SignUpBtn";
 
 
 

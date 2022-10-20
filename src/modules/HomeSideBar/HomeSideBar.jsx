@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setShowSideBar } from "../../../store/actions/layout.actions";
-import { SideBarStyle } from "../../../styles/Home/SideBarStyled/SideBarStyled";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setShowSideBar } from "../../store/actions/layout.actions";
+import { SideBarStyle } from "../../styles/Home/SideBarStyled/SideBarStyled";
+
 import "./HomeSideBar.scss";
 import SideBarContent from "./SideBarContent/SideBarContent";
 export default function HomeSideBar({ isShown }) {
@@ -9,8 +10,7 @@ export default function HomeSideBar({ isShown }) {
   useEffect(() => {
     if (isShown) {
       document.querySelector("#sideBar").classList.add("sideBar__shown");
-    }
-    else {
+    } else {
       document.querySelector("#sideBar").classList.remove("sideBar__shown");
     }
   }, [isShown]);
