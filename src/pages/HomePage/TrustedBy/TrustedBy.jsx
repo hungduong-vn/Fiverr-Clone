@@ -9,6 +9,8 @@ const Styled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
   }
   .trusted-by-text {
     padding-right: 1.25rem;
@@ -24,7 +26,8 @@ const Styled = styled.div`
     align-items: center;
     li {
       padding-right: 1rem;
-      &:last-of-type {
+      &.display-from-sm {
+        display: none;
         padding-right: 0 !important;
       }
     }
@@ -32,15 +35,18 @@ const Styled = styled.div`
   @media only screen and (min-width: 600px) {
     margin-bottom: 5rem;
     .trusted-by-list {
-      height: 95px;
       li {
         padding-right: 1.5rem;
+        &.display-from-sm {
+          display: block;
+        }
       }
     }
   }
   @media only screen and (min-width: 900px) {
     margin-bottom: 6rem;
     .trusted-by-list {
+      height: 95px;
       li {
         padding-right: 3.75rem;
       }
