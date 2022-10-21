@@ -52,27 +52,27 @@ export default function FooterSocials() {
   return (
     <Wrapper>
       <li>
-        <a href="#footer">
+        <a href="#">
           <i className="fab fa-twitter"></i>
         </a>
       </li>
       <li>
-        <a href="#footer">
+        <a href="#">
           <i className="fab fa-facebook"></i>
         </a>
       </li>
       <li>
-        <a href="#footer">
+        <a href="#">
           <i className="fab fa-linkedin"></i>
         </a>
       </li>
       <li>
-        <a href="#footer">
+        <a href="#">
           <i className="fab fa-pinterest"></i>
         </a>
       </li>
       <li>
-        <a href="#footer">
+        <a href="#">
           <i className="fab fa-instagram"></i>
         </a>
       </li>

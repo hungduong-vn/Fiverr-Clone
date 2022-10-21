@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const Styled = styled.div`
-  margin: 0 auto 48px;
   background-color: #fafafa;
 
   .max-width-container {
@@ -33,7 +32,6 @@ const Styled = styled.div`
     }
   }
   @media only screen and (min-width: 600px) {
-    margin-bottom: 5rem;
     .trusted-by-list {
       li {
         padding-right: 1.5rem;
@@ -44,7 +42,6 @@ const Styled = styled.div`
     }
   }
   @media only screen and (min-width: 900px) {
-    margin-bottom: 6rem;
     .trusted-by-list {
       height: 95px;
       li {
@@ -61,11 +58,11 @@ const Styled = styled.div`
 
 export default function TrustedBy() {
   return (
-    <Styled>
+    <Styled className="main-section">
       <div className="max-width-container">
         <span className="trusted-by-text"> Trusted by:</span>
         <ul className="trusted-by-list">
-          <li className>
+          <li>
             <picture>
               <source
                 media="(max-width: 899px)"
@@ -81,7 +78,7 @@ export default function TrustedBy() {
               />
             </picture>
           </li>
-          <li className>
+          <li>
             <picture>
               <source
                 media="(max-width: 899px)"
@@ -97,7 +94,7 @@ export default function TrustedBy() {
               />
             </picture>
           </li>
-          <li className>
+          <li>
             <picture>
               <source
                 media="(max-width: 899px)"
@@ -113,7 +110,7 @@ export default function TrustedBy() {
               />
             </picture>
           </li>
-          <li className>
+          <li>
             <picture>
               <source
                 media="(max-width: 899px)"

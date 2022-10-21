@@ -25,11 +25,11 @@ const Styled = styled.li`
 export default function FooterColItem({ content }) {
   const preprocess = () => {
     if (typeof content === "string") {
-      return <a href="/">{content}</a>;
+      return <a href="#">{content}</a>;
     } else {
       return (
         <>
-          <a href="/">{content.main}</a>
+          <a href="#">{content.main}</a>
           <p>{content.sub}</p>
         </>
       );

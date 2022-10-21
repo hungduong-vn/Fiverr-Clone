@@ -45,17 +45,23 @@ export default function FooterSettings() {
   return (
     <Wrapper>
       <section className="language-settings">
-        <button>
-          <GlobeIcon />
-          English
-        </button>
+        <a href="#">
+          <button>
+            <GlobeIcon />
+            English
+          </button>
+        </a>
       </section>
       <section className="currency-settings">
-        <button>$ USD</button>
+        <a href="#">
+          <button>$ USD</button>
+        </a>
       </section>
-      <button>
-        <AccessibilityIcon />
-      </button>
+      <a href="#">
+        <button>
+          <AccessibilityIcon />
+        </button>
+      </a>
     </Wrapper>
   );
 }
