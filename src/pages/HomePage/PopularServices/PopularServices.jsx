@@ -80,8 +80,8 @@ export default function PopularServices() {
     ));
   };
   const slickSlideSettings = {
-    dots: true,
-    infinite: false,
+    dots: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -93,7 +93,7 @@ export default function PopularServices() {
           slidesToShow: 4,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -102,7 +102,7 @@ export default function PopularServices() {
           slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -118,6 +118,7 @@ export default function PopularServices() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          // dots: true,
         },
       },
     ],

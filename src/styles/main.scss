@@ -74,6 +74,14 @@ h2 {
       flex-basis: 20%;
       max-width: 20%;
     }
+    & > .col-7-md {
+      flex-basis: 46.66667%;
+      max-width: 46.66667%;
+    }
+    & > .col-8-md {
+      flex-basis: 53.33333%;
+      max-width: 53.33333%;
+    }
   }
   .main-section {
     margin-bottom: 6rem;
