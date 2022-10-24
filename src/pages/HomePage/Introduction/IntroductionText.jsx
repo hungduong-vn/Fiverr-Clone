@@ -4,9 +4,48 @@ import styled from "styled-components";
 const Styled = styled.div`
   &.intro-text {
     padding-bottom: 48px;
+    h2 {
+      padding-bottom: 20px;
+    }
+    h6 {
+      padding-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      font-size: 16px;
+      line-height: 140%;
+    }
+    p {
+      font-size: 18px;
+      line-height: 26px;
+    }
+    li {
+      padding-bottom: 20px;
+    }
+    .check-icon {
+      margin-right: 10px;
+      width: 24px;
+      height: 24px;
+      fill: rgb(122, 125, 133);
+      svg {
+        height: 24px;
+        width: 24px;
+      }
+    }
+    @media only screen and (min-width: 600px) {
+      h6 {
+        font-size: 18px;
+      }
+    }
+
     @media only screen and (min-width: 900px) {
       padding-right: 7%;
       padding-bottom: 0;
+      li {
+        padding-bottom: 24px;
+      }
+      h2 {
+        padding-bottom: 24px;
+      }
     }
     @media only screen and (min-width: 1160px) {
       padding-right: 11%;
