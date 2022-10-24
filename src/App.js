@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {
+  OpenVideoModalContext,
+  OpenVideoModalProvider,
+} from "./contexts/Home/VideoModalContext";
 import HomePage from "./layouts/Home/HomePage";
 import Footer from "./modules/Footer/Footer";
 import Header from "./modules/Header/Header";
@@ -37,12 +41,14 @@ function App() {
   const layoutState = useSelector((state) => state.layoutReducer);
   const dispatch = useDispatch();
   return (
-    <div id="HOME">
-      <Header />
-      <HomePage />
-      <HomeSideBar isShown={layoutState.showSideBar} />
-      <Footer />
-    </div>
+    <OpenVideoModalProvider>
+      <div id="HOME">
+        <Header />
+        <HomePage />
+        <HomeSideBar isShown={layoutState.showSideBar} />
+        <Footer />
+      </div>
+    </OpenVideoModalProvider>
   );
 }
 

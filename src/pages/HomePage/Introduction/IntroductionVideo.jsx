@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { OpenVideoModalContext } from "../../../contexts/Home/VideoModalContext";
 import { setShowIntroVideoModal } from "../../../store/actions/layout.actions";
+import IntroductionVideoModal from "./IntroductionVideoModal";
 
 const Styled = styled.div`
   display: flex;
@@ -33,9 +35,11 @@ const Styled = styled.div`
 `;
 
 export default function IntroductionVideo() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const [_, setVideoModal] = useContext(OpenVideoModalContext);
   const handleClickVideo = () => {
-    dispatch(setShowIntroVideoModal(true));
+    // dispatch(setShowIntroVideoModal(true));
+    setVideoModal({ isShown: true, content: <IntroductionVideoModal /> });
   };
   return (
     <Styled className="col-15-xs col-8-md">
