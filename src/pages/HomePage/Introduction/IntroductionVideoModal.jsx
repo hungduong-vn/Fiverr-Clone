@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { setShowIntroVideoModal } from "../../../store/actions/layout.actions";
 
 const Styled = styled.div`
-  .shown {
+  &.shown {
     transform: translateY(0);
     opacity: 1;
   }
@@ -23,19 +25,18 @@ const Styled = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #fff;
   }
   .modal-content-body {
     padding: 0;
     background-color: transparent;
     border-radius: 4px;
-    background-color: #fff;
-    flex-grow: 1;
     overflow-y: auto;
     padding: 15px;
     video {
@@ -43,10 +44,22 @@ const Styled = styled.div`
       object-fit: cover;
     }
   }
+  .introduction-video-modal-overlay {
+    background-color: rgba(0, 0, 0, 0.65);
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* z-index: 9999; */
+  }
   @media only screen and (min-width: 600px) {
     transition: opacity 0.15s;
     opacity: 0;
-    transform: translateY(0);
+    &.shown {
+      transform: translateY(0);
+      opacity: 1;
+    }
     .introduction-video-wrapper {
       width: 70vw;
       max-height: 90vh;
@@ -65,12 +78,20 @@ const Styled = styled.div`
 `;
 
 export default function IntroductionVideoModal() {
-  const [isShown, setIsShown] = useState(false);
+  const { showIntroVideo } = useSelector((state) => state.layoutReducer);
+  const dispatch = useDispatch();
+  // const [isShown, setIsShown] = useState(showIntroVideo);
+  // console.log(isShown);
+  console.log(showIntroVideo);
   return (
-    <Styled
-      className={`${isShown ? "shown" : ""}`}
-      onClick={() => setIsShown(false)}
-    >
+    <Styled className={`${showIntroVideo ? "shown" : ""}`}>
+      <div
+        className="introduction-video-modal-overlay"
+        onClick={() => {
+          dispatch(setShowIntroVideoModal(false));
+          // setIsShown(false);
+        }}
+      ></div>
       <div className="introduction-video-wrapper">
         <section className="MODAL__modal-content-body-u9ca5eeb6 modal-content-body rounded-corners">
           <video

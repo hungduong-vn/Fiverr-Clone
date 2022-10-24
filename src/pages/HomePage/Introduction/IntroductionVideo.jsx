@@ -1,5 +1,7 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { setShowIntroVideoModal } from "../../../store/actions/layout.actions";
 
 const Styled = styled.div`
   display: flex;
@@ -23,14 +25,22 @@ const Styled = styled.div`
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
     }
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 
 export default function IntroductionVideo() {
+  const dispatch = useDispatch();
+  const handleClickVideo = () => {
+    dispatch(setShowIntroVideoModal(true));
+  };
   return (
     <Styled className="col-15-xs col-8-md">
       <div className="video-modal">
-        <div className="picture-wrapper" >
+        <div className="picture-wrapper" onClick={handleClickVideo}>
           <picture>
             <source
               media="(min-width: 1160px)"
