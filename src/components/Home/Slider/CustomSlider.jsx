@@ -9,6 +9,7 @@ export default function CustomSlider({ settings, children }) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    ...settings,
   };
   const sliderSettings = settings || DEFAULT_SETTINGS;
   return (

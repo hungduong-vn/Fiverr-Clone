@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { OpenVideoModalContext } from "../../../contexts/Home/VideoModalContext";
+import VideoWrapper from "./VideoWrapper";
 
 const Styled = styled.div`
   background-color: rgba(0, 0, 0, 0.65);
@@ -49,6 +50,7 @@ const Styled = styled.div`
 
 export default function VideoModal() {
   const [state, setState] = useContext(OpenVideoModalContext);
+  console.log({ state });
 
   return (
     <Styled isShown={state.isShown}>
@@ -57,7 +59,9 @@ export default function VideoModal() {
         onClick={() => setState({ ...state, isShown: false })}
       ></div>
       <div className="modal-wrapper">
-        <div className="modal-body">{state.content}</div>
+        <div className="modal-body">
+          <VideoWrapper video={state.content} />
+        </div>
       </div>
     </Styled>
   );
