@@ -6,7 +6,11 @@ import FooterList from "./FooterList";
 
 const Col = styled.div`
   .footer-collapsible {
+    padding-bottom: 20px;
     display: block;
+    .col-title {
+      padding: 0;
+    }
   }
   .footer-lg {
     display: none;
