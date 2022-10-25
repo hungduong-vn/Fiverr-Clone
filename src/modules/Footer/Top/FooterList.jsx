@@ -17,7 +17,9 @@ export default function FooterList({ list }) {
     <Styled>
       <ul>
         {list &&
-          list.map((ele, idx) => <FooterColItem key={idx} content={ele} />)}
+          list.map((ele, idx) => (
+            <FooterColItem isFirst={idx === 0} key={idx} content={ele} />
+          ))}
       </ul>
     </Styled>
   );

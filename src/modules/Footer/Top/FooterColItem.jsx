@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { styles } from "../../../constants/styles";
 
-
 const Styled = styled.li`
   padding-bottom: 1rem;
+  ${({ isFirst }) => isFirst && `padding-top: 1.25rem;`}
   a {
     color: ${styles.colorSecondary};
     &:hover {
@@ -22,7 +22,7 @@ const Styled = styled.li`
   }
 `;
 
-export default function FooterColItem({ content }) {
+export default function FooterColItem({ content, isFirst }) {
   const preprocess = () => {
     if (typeof content === "string") {
       return <a href="#">{content}</a>;
@@ -35,5 +35,5 @@ export default function FooterColItem({ content }) {
       );
     }
   };
-  return <Styled>{preprocess(content)}</Styled>;
+  return <Styled isFirst={isFirst}>{preprocess(content)}</Styled>;
 }
