@@ -31,9 +31,12 @@ const Wrapper = styled.div`
 
   .content {
     padding: 0 18px;
-    display: none;
+    display: block;
     overflow: hidden;
     background-color: #f1f1f1;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
   }
 `;
 
@@ -43,11 +46,11 @@ export default function Collapsible({ title, content }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const toggleBtn = () => {
     btnRef.current.classList.toggle("active");
-    if (contentRef.current.style.display === "block") {
-      contentRef.current.style.display = "none";
+    if (contentRef.current.style.maxHeight) {
+      contentRef.current.style.maxHeight = null;
       setIsCollapsed(true);
     } else {
-      contentRef.current.style.display = "block";
+      contentRef.current.style.maxHeight = contentRef.current.scrollHeight + "px";
       setIsCollapsed(false);
     }
   };
