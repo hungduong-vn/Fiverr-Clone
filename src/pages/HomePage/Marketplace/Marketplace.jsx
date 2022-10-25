@@ -5,6 +5,7 @@ import MarketplaceGrid from "./MarketplaceGrid";
 const Styled = styled.div`
   h2 {
     padding-bottom: 20px;
+    margin-bottom: 40px;
   }
   @media only screen and (min-width: 600px) {
   }
