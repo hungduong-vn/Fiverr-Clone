@@ -2,7 +2,7 @@ import React from "react";
 import Carousel from "../../pages/HomePage/Carousel/Carousel";
 import Introduction from "../../pages/HomePage/Introduction/Introduction";
 import PopularServices from "../../pages/HomePage/PopularServices/PopularServices";
-import Testimonial from "../../pages/HomePage/Testimonial/Testimonial";
+import Testimonials from "../../pages/HomePage/Testimonials/Testimonials";
 import TrustedBy from "../../pages/HomePage/TrustedBy/TrustedBy";
 import "./HomePage.scss";
 
@@ -13,7 +13,7 @@ export default function HomePage() {
       <TrustedBy />
       <PopularServices />
       <Introduction />
-      <Testimonial />
+      <Testimonials />
     </>
   );
 }

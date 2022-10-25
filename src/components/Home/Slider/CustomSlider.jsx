@@ -3,59 +3,22 @@ import Slider from "react-slick";
 import styled from "styled-components";
 
 export default function CustomSlider({ settings, children }) {
-  const slickSlideSettings = settings || {
-    dots: false,
+  const DEFAULT_SETTINGS = {
+    dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 1,
     slidesToScroll: 1,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1240,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-        },
-      },
-      {
-        breakpoint: 1060,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-        },
-      },
-      {
-        breakpoint: 799,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          // initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          // dots: true,
-        },
-      },
-    ],
   };
+  const sliderSettings = settings || DEFAULT_SETTINGS;
   return (
-    <Styled >
-      <Slider {...slickSlideSettings}>{children}</Slider>
+    <Styled>
+      <Slider {...sliderSettings}>{children}</Slider>
     </Styled>
   );
 }
 
 const Styled = styled.div`
-  
   .slick-arrow {
     background-color: #fff;
     z-index: 4;
