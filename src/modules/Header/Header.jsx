@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import FiverLogo from "../../components/Svg/FiverLogo";
 import CategoriesBar from "./CategoriesBar/CategoriesBar";
 import "./Header.scss";
@@ -11,9 +12,15 @@ export default function Header() {
   window.onscroll = () => {
     setScrollY(window.scrollY);
   };
-  const [showCategories, setShowCategories] = useState(false)
+  const { pathname } = useLocation();
+  const [showCategories, setShowCategories] = useState(false);
   useEffect(() => {
     const header = document.querySelector("header");
+    if (pathname !== "/") {
+      header.style.position = "relative";
+      setShowCategories(true);
+      return;
+    }
     // console.log({ header });
     // console.log(scrollY);
     if (scrollY > 0) {
@@ -21,7 +28,6 @@ export default function Header() {
       if (scrollY > 170) {
         header.classList.remove("header__hidden");
         setShowCategories(true);
-
       } else {
         header.classList.add("header__hidden");
         setShowCategories(false);
@@ -29,13 +35,17 @@ export default function Header() {
     } else {
       header.classList.add("header__transparent");
     }
-  }, [scrollY]);
+  }, [scrollY, pathname]);
 
   return (
-    <header className="header homeHeader header__transparent header__hidden">
+    <header
+      className={`header homeHeader ${
+        pathname === "/" ? "header__transparent header__hidden" : ""
+      }`}
+    >
       <div className="header__wrapper">
         <div className="header__row max-width-container">
-          <NavShowBtn/>
+          <NavShowBtn />
           <a className="header__logo" href="/">
             <FiverLogo />
           </a>
@@ -47,7 +57,7 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <CategoriesBar showCategories={showCategories}/>
+      <CategoriesBar showCategories={showCategories} />
     </header>
   );
 }

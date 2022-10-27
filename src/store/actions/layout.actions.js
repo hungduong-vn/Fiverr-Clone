@@ -1,5 +1,6 @@
 import {
   SET_OVERFLOW_NAVBAR,
+  SET_SCREEN_WIDTH,
   SET_SHOW_INTROVIDEO_MODAL,
   SET_SHOW_SIDEBAR,
 } from "../types/layout.types";
@@ -16,4 +17,11 @@ const setShowIntroVideoModal = (data) => ({
   payload: data,
 });
 
-export { setShowSideBar, setOverflowNavbar, setShowIntroVideoModal };
+const setScreenWidth = (data) => ({ type: SET_SCREEN_WIDTH, payload: data });
+
+export {
+  setShowSideBar,
+  setOverflowNavbar,
+  setShowIntroVideoModal,
+  setScreenWidth,
+};
