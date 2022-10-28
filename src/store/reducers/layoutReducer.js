@@ -27,7 +27,8 @@ export const layoutReducer = (state = DEFAULT_VALUE, { type, payload }) => {
 
     case SET_SCREEN_WIDTH:
       // console.log("set ScreenWidth");
-      state.screenWidth = payload;
+      state.overflowNav = payload.overflow;
+      state.screenWidth = payload.screenType;
       return { ...state };
 
     default:

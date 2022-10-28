@@ -18,10 +18,9 @@ const Styled = styled.button`
     width: auto;
     margin: 0;
     border-radius: 0 0.25rem 0.25rem 0;
-
   }
 `;
 
 export default function CarouselSearchBtn() {
-  return <Styled>Search</Styled>;
+  return <Styled type="submit">Search</Styled>;
 }

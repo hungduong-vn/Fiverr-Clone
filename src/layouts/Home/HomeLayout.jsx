@@ -21,28 +21,35 @@ export default function HomeLayout() {
   const dispatch = useDispatch();
   useEffect(() => {
     const homeEle = document.querySelector("#HOME");
-    if (viewWidth >= breakpoints.extraLarge) {
+    if (viewWidth >= breakpoints.categoriesBar) {
+      dispatch(
+        setScreenWidth({ screenType: breakpoints.extraLarge, overflow: false })
+      );
+    } else if (viewWidth >= breakpoints.extraLarge) {
       homeEle.className = "view-xl";
-      dispatch(setScreenWidth(breakpoints.extraLarge));
+      dispatch(
+        setScreenWidth({ screenType: breakpoints.extraLarge, overflow: true })
+      );
     } else if (viewWidth >= breakpoints.large) {
       // console.log("view-lg");
       homeEle.className = "view-lg";
-      dispatch(setScreenWidth(breakpoints.large));
+      dispatch(
+        setScreenWidth({ screenType: breakpoints.large, overflow: true })
+      );
     } else if (viewWidth >= breakpoints.medium) {
       // console.log("view-md");
       homeEle.className = "view-md";
-      dispatch(setScreenWidth(breakpoints.medium));
+      dispatch(
+        setScreenWidth({ screenType: breakpoints.medium, overflow: true })
+      );
     } else {
       // console.log("view-sm");
       homeEle.className = "view-sm";
-      dispatch(setScreenWidth(breakpoints.small));
+      dispatch(
+        setScreenWidth({ screenType: breakpoints.small, overflow: true })
+      );
     }
   }, [viewWidth]);
-  // if (viewWidth < 1267) {
-  //   dispatch(setOverflowNavbar(true));
-  // } else {
-  //   dispatch(setOverflowNavbar(false));
-  // }
 
   return (
     <div id="HOME">

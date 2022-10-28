@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { breakpoints } from "../../../constants/common";
 import "./HeaderSearch.scss";
 
@@ -9,11 +10,11 @@ export default function HeaderSearch() {
     console.log(inputRef.current.value);
   };
   const { screenWidth } = useSelector((store) => store.layoutReducer);
-  // const isShowMedium = false;
-  // console.log({screenWidth});
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    const query = e.target[0].value;
+    navigate(`/jobs/${query}`);
   };
   return (
     <div className="header__search">

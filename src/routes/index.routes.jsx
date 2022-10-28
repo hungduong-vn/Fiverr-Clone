@@ -11,7 +11,7 @@ export default function Router() {
       element: <HomeLayout />,
       children: [
         { path: "/", element: <HomePage /> },
-        { path: "/jobs", element: <JobListPage /> },
+        { path: "/jobs/:jobQuery", element: <JobListPage /> },
       ],
     },
   ]);

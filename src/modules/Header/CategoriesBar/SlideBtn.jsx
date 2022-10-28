@@ -63,18 +63,19 @@ export default function SlideBtn({ isStart, navListRef }) {
       return;
     }
     if (distance >= viewWidth) {
-      console.log('left');
-      navListRef.current.style.transform = `translateX(-${distance/2}px)`;
+      console.log("left");
+      navListRef.current.style.transform = `translateX(-${distance / 2}px)`;
       setIsBoth(true);
       setState(false);
     } else {
-      console.log('left');
+      console.log("left");
       navListRef.current.style.transform = `translateX(0)`;
       setState(true);
     }
   };
   return (
     <>
+      {" "}
       {state ? (
         <Button onClick={handleRight} className="right">
           <SlideBtnRight />

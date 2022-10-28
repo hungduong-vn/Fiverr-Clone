@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import FiverLogo from "../../components/Svg/FiverLogo";
 import CategoriesBar from "./CategoriesBar/CategoriesBar";
 import "./Header.scss";
@@ -16,10 +16,14 @@ export default function Header() {
   const [showCategories, setShowCategories] = useState(false);
   useEffect(() => {
     const header = document.querySelector("header");
+    console.log({pathname});
     if (pathname !== "/") {
       header.style.position = "relative";
       setShowCategories(true);
       return;
+    } else {
+      header.style.position = "fixed";
+      setShowCategories(false);
     }
     // console.log({ header });
     // console.log(scrollY);
@@ -46,9 +50,9 @@ export default function Header() {
       <div className="header__wrapper">
         <div className="header__row max-width-container">
           <NavShowBtn />
-          <a className="header__logo" href="/">
+          <Link className="header__logo" to="/">
             <FiverLogo />
-          </a>
+          </Link>
           <div className="header__searchbar hide-sm">
             <HeaderSearch />
           </div>
