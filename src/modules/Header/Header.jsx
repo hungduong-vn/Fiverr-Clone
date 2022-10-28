@@ -16,7 +16,7 @@ export default function Header() {
   const [showCategories, setShowCategories] = useState(false);
   useEffect(() => {
     const header = document.querySelector("header");
-    console.log({pathname});
+    // console.log({pathname});
     if (pathname !== "/") {
       header.style.position = "relative";
       setShowCategories(true);
