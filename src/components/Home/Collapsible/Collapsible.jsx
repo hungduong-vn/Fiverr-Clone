@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   .collapsible {
-    background-color: #eee;
+    background-color: transparent;
     color: #444;
     cursor: pointer;
     padding: 18px;
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     align-items: center;
     .collapsible-icon {
       transition: all 0.3s;
-      ${({ isCollapsed }) => (isCollapsed ? "" : `transform: rotate(180deg)`)}
+      ${({ isCollapsed }) => (isCollapsed ? "" : `transform: rotate(-180deg)`)}
     }
     &:focus {
       background-color: transparent;
