@@ -4,7 +4,6 @@ import { styles } from "../../../constants/styles";
 
 
 const Styled = styled.div`
-  padding: 20px 0;
   .col-title {
     padding-top: 0;
   }

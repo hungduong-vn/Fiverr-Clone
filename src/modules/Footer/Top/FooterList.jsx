@@ -10,6 +10,9 @@ const Styled = styled.div`
     overflow: hidden;
     text-align: left;
   }
+  ul {
+    margin-bottom: 0;
+  }
 `;
 export default function FooterList({ list }) {
   // console.log({list});

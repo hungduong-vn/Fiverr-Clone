@@ -6,6 +6,8 @@ export const CategoriesNavItem = styled.li`
   flex-shrink: 0;
   padding: 0 10px;
   position: relative;
+  font-size: 1rem;
+  color: #62646a;
 
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;

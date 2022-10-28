@@ -38,6 +38,9 @@ const Wrapper = styled.div`
     overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
+  .col-title {
+    padding: 20px 0;
+  }
 `;
 
 export default function Collapsible({ title, content }) {
@@ -50,7 +53,8 @@ export default function Collapsible({ title, content }) {
       contentRef.current.style.maxHeight = null;
       setIsCollapsed(true);
     } else {
-      contentRef.current.style.maxHeight = contentRef.current.scrollHeight + "px";
+      contentRef.current.style.maxHeight =
+        contentRef.current.scrollHeight + "px";
       setIsCollapsed(false);
     }
   };

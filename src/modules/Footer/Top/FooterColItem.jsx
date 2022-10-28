@@ -5,6 +5,9 @@ import { styles } from "../../../constants/styles";
 const Styled = styled.li`
   padding-bottom: 1rem;
   ${({ isFirst }) => isFirst && `padding-top: 1.25rem;`}
+  &:last-of-type{
+    padding-bottom: 0;
+  }
   a {
     color: ${styles.colorSecondary};
     &:hover {
