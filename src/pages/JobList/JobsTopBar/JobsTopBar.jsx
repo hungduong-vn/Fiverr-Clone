@@ -11,13 +11,14 @@ const Styled = styled.div`
       0 0.89345px 3.79717px rgb(0 0 0 / 10%), 0 5px 17px rgb(0 0 0 / 17%);
     background-color: #fff;
     .jobs-top-bar {
-      padding-top: 1rem;
+      /* padding-top: 1rem; */
     }
   }
   .jobs-top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     margin-top: 1rem;
   }
   &::after {

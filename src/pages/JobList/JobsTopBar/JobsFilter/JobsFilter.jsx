@@ -11,6 +11,7 @@ const Styled = styled.div`
       margin-left: 0;
     }
     margin: 0 6px;
+    margin-top: 1rem;
     padding: 6px 12px;
     border: 1px solid ${styles.colorLight};
     border-radius: 4px;
