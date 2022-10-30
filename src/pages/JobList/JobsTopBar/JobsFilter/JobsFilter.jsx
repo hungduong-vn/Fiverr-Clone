@@ -19,7 +19,13 @@ const Styled = styled.div`
     min-width: 50px;
   }
 `;
-const filterTitles = ["Category", "Seller Details", "Budget", "Delivery Time"];
+const filterTitles = [
+  "Category",
+  "Service Options",
+  "Seller Details",
+  "Budget",
+  "Delivery Time",
+];
 export default function JobsFilter() {
   return (
     <Styled>
