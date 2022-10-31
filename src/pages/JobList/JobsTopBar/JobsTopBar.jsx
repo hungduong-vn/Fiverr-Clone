@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 import { breakpoints } from "../../../constants/common";
@@ -11,9 +10,8 @@ const Styled = styled.div`
   margin: 0 auto;
   max-width: 1400px;
   padding: 0 24px;
-  @media screen and (min-width: 600) {
+  @media screen and (min-width: 600px) {
     padding: 0 32px;
-    
   }
   &.sticky {
     position: sticky;
@@ -68,7 +66,9 @@ export default function JobsTopBar() {
             <JobsFilter />
             <JobsTogglers />
           </>
-        ) : <JobsTopSmall/>}
+        ) : (
+          <JobsTopSmall />
+        )}
       </div>
     </Styled>
   );
