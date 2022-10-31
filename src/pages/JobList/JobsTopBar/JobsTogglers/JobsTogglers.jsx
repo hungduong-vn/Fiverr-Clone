@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { styles } from "../../../../constants/styles";
 const Styled = styled.div`
   display: flex;
+  margin-top: 1rem;
   .job-toggler {
     display: flex;
     align-items: center;

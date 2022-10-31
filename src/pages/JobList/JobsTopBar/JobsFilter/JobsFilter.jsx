@@ -6,12 +6,12 @@ import { styles } from "../../../../constants/styles";
 
 const Styled = styled.div`
   display: flex;
+  margin-top: 1rem;
   .ant-dropdown-trigger {
     &:first-of-type {
       margin-left: 0;
     }
     margin: 0 6px;
-    margin-top: 1rem;
     padding: 6px 12px;
     border: 1px solid ${styles.colorLight};
     border-radius: 4px;
