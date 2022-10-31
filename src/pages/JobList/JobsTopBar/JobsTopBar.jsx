@@ -10,7 +10,11 @@ import JobsTopSmall from "./JobsTopSmall/JobsTopSmall";
 const Styled = styled.div`
   margin: 0 auto;
   max-width: 1400px;
-  padding: 0 32px;
+  padding: 0 24px;
+  @media screen and (min-width: 600) {
+    padding: 0 32px;
+    
+  }
   &.sticky {
     position: sticky;
     top: 0;
