@@ -9,6 +9,7 @@ const Styled = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-top: 1rem;
   .jobs-top-small-btn {
     text-align: center;
     width: 100%;
