@@ -7,6 +7,7 @@ import JobsTogglers from "./JobsTogglers/JobsTogglers";
 import JobsTopSmall from "./JobsTopSmall/JobsTopSmall";
 
 const Styled = styled.div`
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 24px;
   @media screen and (min-width: 600px) {
@@ -16,11 +17,10 @@ const Styled = styled.div`
     position: sticky;
     top: 0;
     box-shadow: 0 0.266px 1.13052px rgb(0 0 0 / 7%),
-    0 0.89345px 3.79717px rgb(0 0 0 / 10%), 0 5px 17px rgb(0 0 0 / 17%);
+      0 0.89345px 3.79717px rgb(0 0 0 / 10%), 0 5px 17px rgb(0 0 0 / 17%);
     background-color: #fff;
   }
   .jobs-top-bar {
-    max-width: 1400px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,7 +40,7 @@ export default function JobsTopBar() {
   useEffect(() => {
     const sticky = topRef.current?.offsetTop;
     const onScroll = () => {
-      console.log({ sticky }, window.pageYOffset);
+      // console.log({ sticky }, window.pageYOffset);
       if (window.pageYOffset > sticky) {
         topRef.current.classList.add("sticky");
       } else {
