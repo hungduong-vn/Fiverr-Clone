@@ -22,7 +22,9 @@ export default function CarouselSearchBar() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const query = e.target[0].value;
-    navigate(`/jobs/${query}`);
+    if (query) {
+      navigate(`/jobs/${query}`);
+    }
   };
   return (
     <Styled onSubmit={handleSubmit}>

@@ -14,7 +14,9 @@ export default function HeaderSearch() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const query = e.target[0].value;
-    navigate(`/jobs/${query}`);
+    if (query) {
+      navigate(`/jobs/${query}`);
+    }
   };
   return (
     <div className="header__search">

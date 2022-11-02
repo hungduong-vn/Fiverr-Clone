@@ -24,14 +24,14 @@ const Wrapper = styled.ul`
 
     a {
       outline: none;
-      color: currentColor;
+      color: ${styles.colorSecondary};
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       &:hover {
         background-color: #efeff0;
-        color: currentColor;
+        color: ${styles.colorSecondary};
         border-radius: 50%;
         margin: -8px;
         padding: 8px;
