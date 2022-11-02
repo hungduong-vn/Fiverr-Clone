@@ -7,12 +7,6 @@ import JobsTogglers from "./JobsTogglers/JobsTogglers";
 import JobsTopSmall from "./JobsTopSmall/JobsTopSmall";
 
 const Styled = styled.div`
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 24px;
-  @media screen and (min-width: 600px) {
-    padding: 0 32px;
-  }
   &.sticky {
     position: sticky;
     top: 0;
@@ -21,6 +15,9 @@ const Styled = styled.div`
     background-color: #fff;
   }
   .jobs-top-bar {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,16 +28,20 @@ const Styled = styled.div`
     display: block;
     height: 15px;
   }
+  @media screen and (min-width: 600px) {
+    .jobs-top-bar {
+      padding: 0 32px;
+    }
+  }
 `;
 
 export default function JobsTopBar() {
   const topRef = useRef(null);
 
-  const [scrollY, setScrollY] = useState(window.scrollY);
+  const [, setScrollY] = useState(window.scrollY);
   useEffect(() => {
     const sticky = topRef.current?.offsetTop;
     const onScroll = () => {
-      // console.log({ sticky }, window.pageYOffset);
       if (window.pageYOffset > sticky) {
         topRef.current.classList.add("sticky");
       } else {
@@ -53,8 +54,6 @@ export default function JobsTopBar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  // const { screenWidth } = useSelector((state) => state.layoutReducer);
-  // console.log({screenWidth});
   const isScreenLarge = useMediaQuery({
     query: `(min-width: ${breakpoints.large}px)`,
   });

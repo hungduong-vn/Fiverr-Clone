@@ -4,6 +4,7 @@ import { jobs } from "./data";
 import JobsItem from "./JobsItem/JobsItem";
 
 const Styled = styled.div`
+  margin-bottom: 2rem;
   .jobs-wrapper {
     margin-top: 1rem;
     min-height: 370px;
