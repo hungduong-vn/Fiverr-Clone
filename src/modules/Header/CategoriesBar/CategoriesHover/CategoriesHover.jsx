@@ -1,8 +1,33 @@
-import React from 'react'
-import { CategoriesNavItem } from '../../../../styles/Home/CategoriesBar/CategoriesNav/CategoriesNavItem'
+import React from "react";
+import styled from "styled-components";
 
-export default function CategoriesHover() {
+const Styled = styled.div`
+  padding: 20px 32px;
+  position: absolute;
+  left: -20;
+  right: auto;
+  border: 1px solid #e4e5e7;
+  box-shadow: 0 1px 3px #dadbdd;
+  background-color: #fff;
+  z-index: 100;
+  h3 {
+    font-size: 1rem;
+  }
+`;
+
+export default function CategoriesHover({ categoryList }) {
   return (
-    <CategoriesNavItem>CategoriesHover</CategoriesNavItem>
-  )
+    <Styled>
+      {categoryList.map((ele, idx) => {
+        return (
+          <div key={idx}>
+            <h3>{ele.tenNhom}</h3>
+            {ele.dsChiTietLoai.map((subCategory, subIdx) => (
+              <div key={subIdx}>{subCategory.tenChiTiet}</div>
+            ))}
+          </div>
+        );
+      })}
+    </Styled>
+  );
 }

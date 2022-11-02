@@ -32,12 +32,12 @@ const StyledDownOutLined = styled.div`
     transition: all 0.3s;
   }
 `;
-const DropDownAnt = ({ title, content, gap }) => {
+const DropDownAnt = ({ title, content, gap, isHover, hideArrow }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   return (
     <Dropdown
       overlay={content || menu}
-      trigger={["click"]}
+      trigger={isHover ? ["hover"] : ["click"]}
       placement="bottom"
       onOpenChange={(isOpen) => {
         setIsOpenMenu((prev) => !prev);
@@ -50,9 +50,11 @@ const DropDownAnt = ({ title, content, gap }) => {
       >
         <Space size={gap}>
           {title}
-          <StyledDownOutLined isOpenMenu={isOpenMenu}>
-            <i className="icon-arrow-down fas fa-chevron-down"></i>
-          </StyledDownOutLined>
+          {!hideArrow && (
+            <StyledDownOutLined isOpenMenu={isOpenMenu}>
+              <i className="icon-arrow-down fas fa-chevron-down"></i>
+            </StyledDownOutLined>
+          )}
         </Space>
       </a>
     </Dropdown>
