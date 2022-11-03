@@ -13,6 +13,9 @@ const Styled = styled.div`
   h3 {
     font-size: 1rem;
   }
+  .category-group{
+    width: 248px;
+  }
 `;
 
 export default function CategoriesHover({ categoryList }) {
@@ -20,7 +23,7 @@ export default function CategoriesHover({ categoryList }) {
     <Styled>
       {categoryList.map((ele, idx) => {
         return (
-          <div key={idx}>
+          <div key={idx} className="category-group">
             <h3>{ele.tenNhom}</h3>
             {ele.dsChiTietLoai.map((subCategory, subIdx) => (
               <div key={subIdx}>{subCategory.tenChiTiet}</div>
