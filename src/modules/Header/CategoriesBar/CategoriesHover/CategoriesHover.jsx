@@ -12,9 +12,14 @@ const Styled = styled.div`
   z-index: 100;
   h3 {
     font-size: 1rem;
+    padding-bottom: 10px;
   }
   .category-group{
     width: 248px;
+    padding-top: 1rem;
+    &:first-of-type{
+      padding-top: 0;
+    }
   }
 `;
 
