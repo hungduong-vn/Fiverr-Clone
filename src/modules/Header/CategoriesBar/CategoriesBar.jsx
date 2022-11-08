@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
+import { Navigate, useNavigate } from "react-router-dom";
 import DropDownAnt from "../../../components/Home/DropDownAntd/DropDownAntd";
 import { breakpoints } from "../../../constants/common";
 import { StyledCategoriesBar } from "../../../styles/Home/CategoriesBar/CategoriesBar";
@@ -22,6 +23,11 @@ export default function CategoriesBar({ showCategories }) {
   });
   const hoverContent = (list) =>
     list.length > 0 ? <CategoriesHover categoryList={list} /> : null;
+  const navigate = useNavigate();
+  const navToJobCatPage = (jobCatId) => {
+    navigate(`/categories/${jobCatId}`);
+  };
+
   return (
     <div id="categoriesBar">
       <StyledCategoriesBar className={`${showCategories ? "show" : ""}`}>
@@ -31,19 +37,20 @@ export default function CategoriesBar({ showCategories }) {
             {navMenu.map((ele, idx) => {
               return isNavFull ? (
                 <DropDownAnt
+                  key={idx}
                   title={
-                    <CategoriesNavItem key={idx}>
+                    <CategoriesNavItem onClick={() => navToJobCatPage(ele.id)}>
                       <span>{ele.tenLoaiCongViec}</span>
                     </CategoriesNavItem>
                   }
-                  content={
-                    hoverContent(ele.dsNhomChiTietLoai)
-                  }
+                  content={hoverContent(ele.dsNhomChiTietLoai)}
                   hideArrow={true}
                   isHover={true}
                 ></DropDownAnt>
               ) : (
-                <CategoriesNavItem>{ele.tenLoaiCongViec}</CategoriesNavItem>
+                <CategoriesNavItem onClick={() => navToJobCatPage(ele.id)}>
+                  {ele.tenLoaiCongViec}
+                </CategoriesNavItem>
               );
             })}
           </CatgoriesList>
