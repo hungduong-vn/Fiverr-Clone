@@ -106,3 +106,26 @@ export const jobs = [
     avatar: "http://sc04.alicdn.com/kf/Hc3e61591078043e09dba7808a6be5d21n.jpg",
   },
 ];
+
+const dict = {
+  trainInp: {
+    data: "1CNeP13nis04M76ZjuBc1V_JX85BDGyV8",
+    lock: "1CR63_dUH8NvetqybS5SQTq6UWGxMhKpN",
+    meta: "1CQxWS4r8TcQJbQ8I2C3NfTRm4RsY9p_-",
+  },
+  trainGt: {
+    data: "1CYnChXuiF_Ho5KnnUI4f8Id0ibRCTGsT",
+    lock: "1CSjsl7IgktyBCBNL3wiiowCw24EfDyAb",
+    meta: "1CaMci29K8MKogx8sI4khUEr5xq3b12w2",
+  },
+};
+
+const genAPI = (key, value) => {
+  const link = `https://www.googleapis.com/drive/v3/files/${value}?alt=media&key=AIzaSyAPWodYCU5wTVbOb_NryE5vnx6ksONoF5k`;
+  return {key: link}
+};
+const genAPIs = (dict) => {
+  for (let i of dict ){
+    genAPI(i, dict[i])
+  }
+}
