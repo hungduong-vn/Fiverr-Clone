@@ -7,6 +7,7 @@ import JobsTogglers from "./JobsTogglers/JobsTogglers";
 import JobsTopSmall from "./JobsTopSmall/JobsTopSmall";
 
 const Styled = styled.div`
+  z-index: 1;
   &.sticky {
     position: sticky;
     top: 0;
