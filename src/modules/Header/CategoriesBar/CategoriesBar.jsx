@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import { Navigate, useNavigate } from "react-router-dom";
 import DropDownAnt from "../../../components/Home/DropDownAntd/DropDownAntd";
+import CustomSlider from "../../../components/Home/Slider/CustomSlider";
 import { breakpoints } from "../../../constants/common";
 import { StyledCategoriesBar } from "../../../styles/Home/CategoriesBar/CategoriesBar";
 import {
@@ -16,11 +17,15 @@ import SlideBtn from "./SlideBtn";
 
 export default function CategoriesBar({ showCategories }) {
   const { overflowNav } = useSelector((state) => state.layoutReducer);
+
   const navListRef = useRef(null);
 
   const isNavFull = useMediaQuery({
     query: `(min-width: ${breakpoints.categoriesBar}px)`,
   });
+  // const showSlideBtn = useMediaQuery({
+  //   query: `(min-width: ${breakpoints.categoriesBar}px)`,
+  // });
   const hoverContent = (list) =>
     list.length > 0 ? <CategoriesHover categoryList={list} /> : null;
   const navigate = useNavigate();
@@ -48,7 +53,10 @@ export default function CategoriesBar({ showCategories }) {
                   isHover={true}
                 ></DropDownAnt>
               ) : (
-                <CategoriesNavItem onClick={() => navToJobCatPage(ele.id)}>
+                <CategoriesNavItem
+                  onClick={() => navToJobCatPage(ele.id)}
+                  key={ele.id}
+                >
                   {ele.tenLoaiCongViec}
                 </CategoriesNavItem>
               );

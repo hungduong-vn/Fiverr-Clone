@@ -19,6 +19,7 @@ export default function Header() {
     // console.log({pathname});
     if (pathname !== "/") {
       header.style.position = "relative";
+      // header.classList.remove("header__transparent");
       setShowCategories(true);
       return;
     } else {

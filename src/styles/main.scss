@@ -31,7 +31,10 @@ h5 {
   max-width: 1400px;
   display: flex;
 }
-
+.box-shadow-z2 {
+  box-shadow: 0 0.14px 2.29266px rgb(0 0 0 / 3%),
+    0 0.37px 4.42626px rgb(0 0 0 / 5%), 0 3px 7px rgb(0 0 0 / 9%);
+}
 @media only screen and (max-width: 1159px) {
   .hide-lg {
     display: none;
