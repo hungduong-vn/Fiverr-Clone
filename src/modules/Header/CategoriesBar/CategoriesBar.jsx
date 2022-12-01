@@ -1,9 +1,8 @@
 import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DropDownAnt from "../../../components/Home/DropDownAntd/DropDownAntd";
-import CustomSlider from "../../../components/Home/Slider/CustomSlider";
 import { breakpoints } from "../../../constants/common";
 import { StyledCategoriesBar } from "../../../styles/Home/CategoriesBar/CategoriesBar";
 import {
@@ -45,10 +44,10 @@ export default function CategoriesBar({ showCategories }) {
                   key={idx}
                   title={
                     <CategoriesNavItem onClick={() => navToJobCatPage(ele.id)}>
-                      <span>{ele.tenLoaiCongViec}</span>
+                      <span>{ele.name}</span>
                     </CategoriesNavItem>
                   }
-                  content={hoverContent(ele.dsNhomChiTietLoai)}
+                  content={hoverContent(ele.job_subcat_list)}
                   hideArrow={true}
                   isHover={true}
                 ></DropDownAnt>
@@ -57,7 +56,7 @@ export default function CategoriesBar({ showCategories }) {
                   onClick={() => navToJobCatPage(ele.id)}
                   key={ele.id}
                 >
-                  {ele.tenLoaiCongViec}
+                  {ele.name}
                 </CategoriesNavItem>
               );
             })}

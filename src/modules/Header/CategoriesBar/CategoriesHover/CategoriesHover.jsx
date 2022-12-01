@@ -29,9 +29,9 @@ export default function CategoriesHover({ categoryList }) {
       {categoryList.map((ele, idx) => {
         return (
           <div key={idx} className="category-group">
-            <h3>{ele.tenNhom}</h3>
-            {ele.dsChiTietLoai.map((subCategory, subIdx) => (
-              <div key={subIdx}>{subCategory.tenChiTiet}</div>
+            <h3>{ele.job_subcat_name}</h3>
+            {ele.service_list.map((subCategory, subIdx) => (
+              <div key={subIdx}>{subCategory.service_name}</div>
             ))}
           </div>
         );
