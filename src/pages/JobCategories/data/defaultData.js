@@ -7,8 +7,7 @@ export const defaultCategories = [
       {
         id: 187,
         job_subcat_name: "HTML/CSS",
-        img:
-          "http://fiverrnew.cybersoft.edu.vn/images/29-10-2022-08-08-34-ezgif.com-gif-maker.jpg",
+        img: "http://fiverrnew.cybersoft.edu.vn/images/29-10-2022-08-08-34-ezgif.com-gif-maker.jpg",
         maLoaiCongviec: 1,
         service_list: [
           {
@@ -28,8 +27,7 @@ export const defaultCategories = [
       {
         id: 188,
         job_subcat_name: "Design Mobile APP",
-        img:
-          "http://fiverrnew.cybersoft.edu.vn/images/29-10-2022-08-14-57-animation.jpg",
+        img: "http://fiverrnew.cybersoft.edu.vn/images/29-10-2022-08-14-57-animation.jpg",
         maLoaiCongviec: 1,
         service_list: [
           {
@@ -45,8 +43,7 @@ export const defaultCategories = [
       {
         id: 200,
         job_subcat_name: "Design New 02/11",
-        img:
-          "http://fiverrnew.cybersoft.edu.vn/images/02-11-2022-04-51-38-avt.jpg",
+        img: "http://fiverrnew.cybersoft.edu.vn/images/02-11-2022-04-51-38-avt.jpg",
         maLoaiCongviec: 1,
         service_list: [],
       },
@@ -189,8 +186,7 @@ export const defaultCategories = [
       {
         id: 192,
         job_subcat_name: "Beat Productions",
-        img:
-          "http://fiverrnew.cybersoft.edu.vn/images/30-10-2022-07-39-22-application-development_2x.jpg",
+        img: "http://fiverrnew.cybersoft.edu.vn/images/30-10-2022-07-39-22-application-development_2x.jpg",
         maLoaiCongviec: 5,
         service_list: [
           {
@@ -258,6 +254,29 @@ export const defaultJobCat = {
     desktop_img:
       "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/3f1b7ea10295936b6846bcff0afd38cf-1626595415203/graphics-design-desktop.png",
     bg_color: "rgb(11,58,35)",
-    description:"Designs to make you stand out",
+    description: "Designs to make you stand out",
   },
 };
+
+export const defaultPopularServices = [
+  { id: 1, name: "Minimalist logo design" },
+  { id: 2, name: "Signature logo design" },
+  { id: 3, name: "Mascot logo design" },
+  { id: 4, name: "3d logo design" },
+  { id: 5, name: "Hand drawn logo design" },
+  { id: 6, name: "Vintage logo design" },
+  { id: 7, name: "Remove background" },
+  { id: 8, name: "Photo restoration" },
+  { id: 9, name: "Photo retouching" },
+  { id: 10, name: "Image resize" },
+  { id: 11, name: "Product label design" },
+  { id: 12, name: "Custom twitch overlay" },
+  { id: 13, name: "Custom twitch emotes" },
+  { id: 14, name: "Gaming logo" },
+  { id: 15, name: "Children book illustration" },
+  { id: 16, name: "Instagram design" },
+  { id: 17, name: "Movie poster design" },
+  { id: 18, name: "Box design" },
+  { id: 19, name: "Logo maker" },
+  { id: 20, name: "Logo ideas" },
+];

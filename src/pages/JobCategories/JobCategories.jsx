@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import JobCatBody from "./Body/JobCatBody";
 import JobCatBottom from "./Bottom/JobCatBottom";
-import { defaultJobCat } from "./data/defaultData";
+import { defaultJobCat, defaultPopularServices } from "./data/defaultData";
 import JobCatTop from "./Top/JobCatTop";
 
 const Styled = styled.div`
@@ -15,7 +15,7 @@ export default function JobCategories() {
     <Styled className="content-row">
       <JobCatTop name={name} banner={banner} />
       <JobCatBody name={name} />
-      <JobCatBottom />
+      <JobCatBottom name={name} popularList={defaultPopularServices} />
     </Styled>
   );
 }
