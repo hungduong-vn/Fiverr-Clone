@@ -23,15 +23,14 @@ export default function MarketplaceGrid() {
 
   return (
     <Styled>
-      {jobCats.length > 0 &&
-        marketList.map((ele, idx) => (
-          <MarketplaceItem
-            key={idx}
-            text={jobCats[idx].name}
-            // text={ele.text}
-            iconUrl={ele.iconUrl}
-          />
-        ))}
+      {marketList.map((ele, idx) => (
+        <MarketplaceItem
+          key={idx}
+          // text={jobCats[idx].name}
+          text={jobCats.length > 0 ? jobCats[idx].name : ele.text}
+          iconUrl={ele.iconUrl}
+        />
+      ))}
     </Styled>
   );
 }
