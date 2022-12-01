@@ -9,11 +9,12 @@ import JobCatSliderItem from "./JobCatSliderItem";
 
 const Styled = styled.div`
   max-width: 100%;
+  margin-top: 3rem;
   .jobcat-sliders-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
   }
   .slick-track {
     display: flex;
@@ -43,15 +44,15 @@ export default function JobCatSliders({ slides, jobCatName }) {
       query: `(max-width: ${breakpoints.extraLarge}px)`,
     }) || slides.length > 12;
   const [clickNext, setClickNext] = useState(() => {
-    console.log("ClickNext");
+    // console.log("ClickNext");
   });
   const [clickPrev, setClickPrev] = useState(() => {
-    console.log("ClickPrev");
+    // console.log("ClickPrev");
   });
   return (
     <Styled>
       <div className="jobcat-sliders-head">
-        <h2>Most popular in {jobCatName}</h2>
+        <h2 className="text-display-4">Most popular in {jobCatName}</h2>
         {isOverflow ? null : (
           <div className="jobcat-sliders-arrows">
             <SliderArrow

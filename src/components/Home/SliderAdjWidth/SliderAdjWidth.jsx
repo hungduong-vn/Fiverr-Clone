@@ -41,7 +41,7 @@ export default function SliderAdjWidth({
   const [slider, setSlider] = useState(null);
 
   useEffect(() => {
-    console.log({ slider });
+    // console.log({ slider });
     if (slider !== null) {
       setClickNext(() => {
         return slider.slickNext;

@@ -12,6 +12,9 @@
     padding: 0 6px;
   }
 }
+h1{
+  font-size: 2rem;
+}
 h2 {
   font-size: 28px;
   line-height: 130%;
@@ -34,6 +37,15 @@ h5 {
 .box-shadow-z2 {
   box-shadow: 0 0.14px 2.29266px rgb(0 0 0 / 3%),
     0 0.37px 4.42626px rgb(0 0 0 / 5%), 0 3px 7px rgb(0 0 0 / 9%);
+}
+.text-display-4 {
+  font-size: 20px;
+  line-height: 140%;
+}
+.text-display-4 {
+  color: #404145;
+  font-family: Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight: 700;
 }
 @media only screen and (max-width: 1159px) {
   .hide-lg {
@@ -73,6 +85,10 @@ h5 {
   }
   h5 {
     font-size: 20px;
+  }
+  .text-display-4 {
+    font-size: 24px;
+    line-height: 130%;
   }
 }
 @media only screen and (max-width: 599px) {
