@@ -1,41 +1,87 @@
 import React from "react";
+import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import SliderArrow from "../../../../components/Home/Slider/SliderArrow";
+import SliderAdjWidth from "../../../../components/Home/SliderAdjWidth/SliderAdjWidth";
 import { breakpoints } from "../../../../constants/common";
 import JobCatSliderItem from "./JobCatSliderItem";
 
 const Styled = styled.div`
   max-width: 100%;
-  overflow-x: scroll;
-  .jobcat-sliders {
+  .jobcat-sliders-head {
     display: flex;
-    ${({ overflow }) =>
-      overflow &&
-      css`
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1rem;
-      `}
-
-    .jobcat-slider-item:first-of-type {
-      padding-left: 0;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .slick-track {
+    display: flex;
+  }
+  .jobcat-sliders-arrows {
+    display: flex;
+    .prev {
+      margin-right: 0.5rem;
+    }
+  }
+  .jobcat-slider-item:first-of-type {
+    padding-left: 0;
+  }
+  @media screen and (max-width: 1159px) {
+    .jobcat-sliders {
+      overflow-x: scroll;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
     }
   }
 `;
 
-export default function JobCatSliders({ slides }) {
+export default function JobCatSliders({ slides, jobCatName }) {
   const isOverflow =
     useMediaQuery({
-      query: `(max-width: ${breakpoints.small}px)`,
+      query: `(max-width: ${breakpoints.extraLarge}px)`,
     }) || slides.length > 12;
-  console.log({ isOverflow });
+  const [clickNext, setClickNext] = useState(() => {
+    console.log("ClickNext");
+  });
+  const [clickPrev, setClickPrev] = useState(() => {
+    console.log("ClickPrev");
+  });
   return (
-    <Styled overflow={isOverflow}>
-      <div className="jobcat-sliders">
-        {slides.map((ele, idx) => (
-          <JobCatSliderItem key={idx} item={ele} fixedWidth={isOverflow} />
-        ))}
+    <Styled>
+      <div className="jobcat-sliders-head">
+        <h2>Most popular in {jobCatName}</h2>
+        {isOverflow ? null : (
+          <div className="jobcat-sliders-arrows">
+            <SliderArrow
+              left={true}
+              func={() => {
+                clickPrev();
+              }}
+            />
+            <SliderArrow
+              func={() => {
+                clickNext();
+              }}
+            />
+          </div>
+        )}
       </div>
+      {isOverflow ? (
+        <div className="jobcat-sliders">
+          {slides.map((ele, idx) => (
+            <JobCatSliderItem key={idx} item={ele} fixedWidth={isOverflow} />
+          ))}
+        </div>
+      ) : (
+        <SliderAdjWidth
+          slides={slides}
+          SlideComponent={JobCatSliderItem}
+          setClickNext={setClickNext}
+          setClickPrev={setClickPrev}
+        />
+      )}
     </Styled>
   );
 }

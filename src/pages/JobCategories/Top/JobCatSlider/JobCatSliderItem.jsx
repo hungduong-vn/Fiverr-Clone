@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 const Styled = styled.div`
   min-width: fit-content;
-  padding: 0 0.5rem;
+  padding: 1rem 0.5rem;
   cursor: pointer;
   ${(props) =>
     props.fixedWidth &&
@@ -41,6 +41,7 @@ const Styled = styled.div`
     font-size: 1rem;
     line-height: 1.5rem;
     margin-right: 0.75rem;
+    width: max-content
   }
   .go-to-arrow {
     fill: #74767e;
