@@ -69,8 +69,8 @@ const Styled = styled.div`
     }
   }
 `;
-export default function JobCatBanner({ name, description, banner }) {
-  const { bg_color, mobile_img, desktop_img } = banner;
+export default function JobCatBanner({ name, banner }) {
+  const { bg_color, mobile_img, desktop_img, description } = banner;
   return (
     <Styled
       className="jobcat-banner"

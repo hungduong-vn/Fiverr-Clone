@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import JobCatBody from "./Body/JobCatBody";
 import JobCatBottom from "./Bottom/JobCatBottom";
+import { defaultJobCat } from "./data/defaultData";
 import JobCatTop from "./Top/JobCatTop";
 
 const Styled = styled.div`
@@ -9,13 +10,12 @@ const Styled = styled.div`
 `;
 
 export default function JobCategories() {
+  const { name, banner } = defaultJobCat;
   return (
     <Styled className="content-row">
-      <JobCatTop />
-      <JobCatBody />
+      <JobCatTop name={name} banner={banner} />
+      <JobCatBody name={name} />
       <JobCatBottom />
-      {/* <SliderAdjWidth slides={slides} SlideComponent={JobCatSliderItem}/> */}
-      {/* <JobCatSliders slides={slides} /> */}
     </Styled>
   );
 }

@@ -14,7 +14,6 @@ const Styled = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* margin-bottom: 1rem; */
   }
   .slick-track {
     display: flex;
@@ -35,10 +34,13 @@ const Styled = styled.div`
       grid-template-columns: 1fr 1fr 1fr;
       gap: 1rem;
     }
+    .jobcat-sliders-head {
+      margin-bottom: 1rem;
+    }
   }
 `;
 
-export default function JobCatSliders({ slides, jobCatName }) {
+export default function JobCatSliders({ slides, name }) {
   const isOverflow =
     useMediaQuery({
       query: `(max-width: ${breakpoints.extraLarge}px)`,
@@ -52,7 +54,7 @@ export default function JobCatSliders({ slides, jobCatName }) {
   return (
     <Styled>
       <div className="jobcat-sliders-head">
-        <h2 className="text-display-4">Most popular in {jobCatName}</h2>
+        <h2 className="text-display-4">Most popular in {name}</h2>
         {isOverflow ? null : (
           <div className="jobcat-sliders-arrows">
             <SliderArrow
