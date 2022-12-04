@@ -13,7 +13,7 @@ export default function MarketplaceGrid() {
   const [jobCats, setJobCats] = useState([]);
   const fetchData = async () => {
     const result = await getJobCats();
-    console.log({ result: result.data.content });
+    // console.log({ result: result.data.content });
     setJobCats(result.data.content);
   };
   useEffect(() => {
@@ -26,8 +26,8 @@ export default function MarketplaceGrid() {
       {marketList.map((ele, idx) => (
         <MarketplaceItem
           key={idx}
-          // text={jobCats[idx].name}
-          text={jobCats.length > 0 ? jobCats[idx].name : ele.text}
+          text={ele.text}
+          // text={jobCats.length > 0 ? jobCats[idx].name : ele.text}
           iconUrl={ele.iconUrl}
         />
       ))}

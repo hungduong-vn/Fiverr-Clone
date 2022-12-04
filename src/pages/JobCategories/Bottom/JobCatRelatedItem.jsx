@@ -17,6 +17,6 @@ const Styled = styled.div`
     text-decoration: underline;
   }
 `;
-export default function JobCatPopularItem({ name }) {
+export default function JobCatRelatedItem({ name }) {
   return <Styled>{name}</Styled>;
 }

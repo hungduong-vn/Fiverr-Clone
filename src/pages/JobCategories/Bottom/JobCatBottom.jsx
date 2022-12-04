@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import JobCatPopularItem from "./JobCatPopularItem";
+import JobCatRelatedItem from "./JobCatRelatedItem";
 const Styled = styled.div`
   padding-top: 1.5rem;
   padding-bottom: 3rem;
@@ -18,13 +18,13 @@ const Styled = styled.div`
     padding-bottom: 4rem;
   }
 `;
-export default function JobCatBottom({ popularList, name }) {
+export default function JobCatBottom({ relatedList, name }) {
   return (
     <Styled>
       <h4 className="heading">Services Related To {name}</h4>
       <div className="wrapper">
-        {popularList.map((ele) => (
-          <JobCatPopularItem key={ele.id} name={ele.name} />
+        {relatedList.map((ele) => (
+          <JobCatRelatedItem key={ele.id} name={ele.name} />
         ))}
       </div>
     </Styled>

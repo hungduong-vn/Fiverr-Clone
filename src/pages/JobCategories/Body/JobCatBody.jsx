@@ -1,7 +1,7 @@
-import React from "react";
-import { useMediaQuery } from "react-responsive";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
-import { breakpoints } from "../../../constants/common";
+import { getServiceByJobCatId } from "../../../services/service";
 import { defaultCategories } from "../data/defaultData";
 import JobCatGrid from "./JobCatGrid";
 
@@ -10,17 +10,23 @@ const Styled = styled.div`
   margin-bottom: 5.5rem;
 `;
 
-export default function JobCatBody({ name }) {
-  const isGrid = useMediaQuery({
-    query: `(min-width: ${breakpoints.medium}px)`,
-  });
-  const jobSubcatList = defaultCategories.filter((ele) => ele.name === name)[0]
-    .job_subcat_list;
-  console.log(jobSubcatList);
-  return (
-    <Styled>
-      <h2 className="text-display-4">Explore {name}</h2>
-      <JobCatGrid list={jobSubcatList} />
-    </Styled>
-  );
+export default function JobCatBody({ id }) {
+  const [data, setData] = useState({});
+  const fetchData = async (id) => {
+    const result = await getServiceByJobCatId(id);
+    setData(result.data.content);
+  };
+  const render = () => {
+    const { name, job_subcategory: jobSubCatList } = data;
+    return (
+      <>
+        <h2 className="text-display-4">Explore {name || ""}</h2>
+        <JobCatGrid list={jobSubCatList || []} />
+      </>
+    );
+  };
+  useEffect(() => {
+    fetchData(id);
+  }, [id]);
+  return <Styled>{data && render()}</Styled>;
 }

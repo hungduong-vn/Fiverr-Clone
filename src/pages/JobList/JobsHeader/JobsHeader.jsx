@@ -13,9 +13,10 @@ const Styled = styled.div`
 `;
 
 export default function JobsHeader({ query }) {
+  let resultTitle = query;
   return (
     <Styled className="max-width-container">
-      <span>Results for "{query}"</span>
+      <span>Results for "{resultTitle}"</span>
     </Styled>
   );
 }

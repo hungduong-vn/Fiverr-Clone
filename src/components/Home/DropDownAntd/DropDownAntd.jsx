@@ -32,8 +32,16 @@ const StyledDownOutLined = styled.div`
     transition: all 0.3s;
   }
 `;
-const DropDownAnt = ({ title, content, gap, isHover, hideArrow }) => {
+const DropDownAnt = ({
+  title,
+  content,
+  gap,
+  isHover,
+  hideArrow,
+  container,
+}) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const customContainer = () => container || document.body;
   return (
     <Dropdown
       overlay={content || menu}
@@ -42,6 +50,7 @@ const DropDownAnt = ({ title, content, gap, isHover, hideArrow }) => {
       onOpenChange={(isOpen) => {
         setIsOpenMenu((prev) => !prev);
       }}
+      getPopupContainer={customContainer}
     >
       <a
         onClick={(e) => {

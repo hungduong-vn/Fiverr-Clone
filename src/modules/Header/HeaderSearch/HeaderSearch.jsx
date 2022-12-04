@@ -15,7 +15,8 @@ export default function HeaderSearch() {
     e.preventDefault();
     const query = e.target[0].value;
     if (query) {
-      navigate(`/jobs/${query}`);
+      const encodedQuery = encodeURIComponent(query);
+      navigate(`/jobs?query=${encodedQuery}`);
     }
   };
   return (

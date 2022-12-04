@@ -21,9 +21,9 @@ const Styled = styled.div`
 `;
 // Styled.displayName = "JobsItem"
 export default function JobsItem({ job, avatar, meta }) {
-  // console.log({job});
   const user = { name: meta.tenNguoiTao, ava: avatar };
 
+  // console.log(job.moTaNgan);
   return (
     <Styled>
       <JobsItemThumb img={job.hinhAnh} />
