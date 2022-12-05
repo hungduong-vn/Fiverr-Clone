@@ -8,4 +8,4 @@ export const breakpoints = {
 
 export const userRole = { admin: "admin", seller: "seller", client: "client" };
 
-export const BASE_URL = "http://localhost:8080/api/";
+export const BASE_URL = "http://103.74.102.80:3030/api/";
