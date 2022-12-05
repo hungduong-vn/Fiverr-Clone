@@ -6,7 +6,7 @@ import JobCatSliders from "./JobCatSlider/JobCatSliders";
 const Styled = styled.div``;
 
 export default function JobCatTop({ name, banner, popularList }) {
-  console.log({ banner: banner[0] });
+  // console.log({ banner: banner[0] });
   return (
     <Styled>
       <JobCatBanner name={name} banner={banner} />
