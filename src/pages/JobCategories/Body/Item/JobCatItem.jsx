@@ -50,25 +50,28 @@ const Styled = styled.div`
 `;
 
 export default function JobCatItem({ item }) {
-  const { service_list, job_subcat_name, img } = item;
+  const { service, name, img } = item;
   const collapsible = useMediaQuery({
     query: `(max-width: ${breakpoints.medium}px)`,
   });
   const top = (
     <div className="top">
-      <img src={img} alt={job_subcat_name} />
-      <h3 className="text-display-5 title-wrapper">{job_subcat_name}</h3>
+      <img src={img} alt={name} />
+      <h3 className="text-display-5 title-wrapper">{name}</h3>
     </div>
   );
   const content = (
     <ul className="jobcat-item-content">
-      {service_list.map((ele) => (
-        <li className="service-wrapper" key={ele.id}>
-          <Link>
-            <span className="service-name">{ele.service_name}</span>
-          </Link>
-        </li>
-      ))}
+      {service.map((ele) => {
+        const url = encodeURIComponent(ele.name);
+        return (
+          <li className="service-wrapper" key={ele.id}>
+            <Link to={`/jobs?query=${url}`}>
+              <span className="service-name">{ele.name}</span>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
   return (

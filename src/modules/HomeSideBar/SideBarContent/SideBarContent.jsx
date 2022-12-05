@@ -2,11 +2,12 @@ import React from "react";
 import GlobeIcon from "../../../components/Svg/GlobeIcon";
 import SignInBtn from "../../../components/Home/SIgnInBtn/SignInBtn";
 import SignUpBtn from "../../../components/Home/SignUpBtn/SignUpBtn";
-
-
-
+import SideBarCatgories from "./SideBarCatgories";
+import { useAsync } from "../../../hooks/useAsync";
+import { getJobCats } from "../../../services/jobCategory";
 
 export default function SideBarContent() {
+  const { state: data } = useAsync({ service: getJobCats });
   return (
     <>
       <div className="sidebar-header">
@@ -16,7 +17,7 @@ export default function SideBarContent() {
         <div className="sidebar-item">
           <SignInBtn innerText="Sign in" />
         </div>
-        <div className="sidebar-item">Browse Categories</div>
+        <SideBarCatgories title={"Browse Categories"} data={data || []} />
         <div className="sidebar-item">Explore</div>
         <div className="sidebar-item">Fiverr Business</div>
       </div>
