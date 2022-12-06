@@ -70,7 +70,7 @@ const Styled = styled.div`
   }
 `;
 export default function JobCatBanner({ name, banner }) {
-  const { bg_color, mobile_img, desktop_img, description } = banner;
+  const { bg_color, mobile_img, desktop_img, descrition } = banner;
   return (
     <Styled
       className="jobcat-banner"
@@ -81,7 +81,7 @@ export default function JobCatBanner({ name, banner }) {
       <div className="wrapper">
         <div className="content">
           <h1 className="title">{name}</h1>
-          <p className="description">{description}</p>
+          <p className="description">{descrition}</p>
           <div className="jobcat-banner-button">
             <button>
               <span>
