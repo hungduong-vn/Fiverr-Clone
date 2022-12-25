@@ -7,12 +7,12 @@ import { carouselBackground } from "./data";
 const Wrapper = styled.div``;
 
 export default function CarouselBack() {
-  const intervalLength = 6000;
+  const duration = 6000;
   const count = useInterval(
     0,
     carouselBackground.length - 1,
     1,
-    intervalLength
+    duration
   );
   // console.log(count);
   return (
