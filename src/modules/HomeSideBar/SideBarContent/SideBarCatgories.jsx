@@ -27,12 +27,14 @@ const Styled = styled.div`
   }
 `;
 
-export default function SideBarCatgories({ title, data }) {
+export default function SideBarCatgories({ title, data, closeSideBar }) {
   const collapseContent = data && (
     <ul className="job-cat-ul">
       {data.map(({ id, name }) => (
         <li key={id}>
-          <Link to={`/categories/${id}`}>{name}</Link>
+          <Link onClick={closeSideBar} to={`/categories/${id}`}>
+            {name}
+          </Link>
         </li>
       ))}
     </ul>
