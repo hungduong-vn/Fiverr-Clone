@@ -5,6 +5,9 @@ import SignInModal from "./SignInModal";
 export default function SignInBtn(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
+    if (props.closeSideBar) {
+      props.closeSideBar();
+    }
     setIsModalOpen(true);
   };
   const handleOk = () => {

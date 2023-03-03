@@ -4,6 +4,9 @@ import SignUpModal from "./SignUpModal.jsx";
 export default function SignUpBtn(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
+    if (props.closeSideBar) {
+      props.closeSideBar();
+    }
     setIsModalOpen(true);
   };
   const handleOk = () => {

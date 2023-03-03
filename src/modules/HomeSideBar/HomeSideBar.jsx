@@ -7,6 +7,7 @@ import "./HomeSideBar.scss";
 import SideBarContent from "./SideBarContent/SideBarContent";
 export default function HomeSideBar({ isShown }) {
   const dispatch = useDispatch();
+  const closeSideBar = () => dispatch(setShowSideBar(false));
   useEffect(() => {
     if (isShown) {
       document.querySelector("#sideBar").classList.add("sideBar__shown");
@@ -18,12 +19,9 @@ export default function HomeSideBar({ isShown }) {
   return (
     <div id="sideBar">
       <SideBarStyle isShown={isShown}>
-        <SideBarContent />
+        <SideBarContent closeSideBar={closeSideBar} />
       </SideBarStyle>
-      <div
-        className="sideBar__overlay"
-        onClick={() => dispatch(setShowSideBar(false))}
-      ></div>
+      <div className="sideBar__overlay" onClick={closeSideBar}></div>
     </div>
   );
 }
