@@ -37,17 +37,13 @@ export default function HeaderList() {
           </a>
         </li>
         <li className="header__item hide-sm">
-          <a className="header__item__text" href="/">
-            <SignInBtn innerText="Sign in" />
-          </a>
+            <SignInBtn className="header__item__text" innerText="Sign in" />
         </li>
         <li className="header__item">
-          <a href="">
-            <SignUpBtn
-              innerText="Join"
-              className="join__btn btn btn-outline-success"
-            />
-          </a>
+          <SignUpBtn
+            innerText="Join"
+            className="join__btn btn btn-outline-success"
+          />
         </li>
       </ul>
     </nav>
