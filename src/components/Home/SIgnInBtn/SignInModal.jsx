@@ -18,7 +18,7 @@ export default function SignInModal() {
         onFinish={onFinish}
       >
         <Form.Item
-          name="username"
+          name="name"
           rules={[
             {
               required: true,

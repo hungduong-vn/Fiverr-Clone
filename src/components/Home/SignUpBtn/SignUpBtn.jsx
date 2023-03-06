@@ -28,7 +28,7 @@ export default function SignUpBtn(props) {
         footer={null}
         width={350}
       >
-        <SignUpModal />
+        <SignUpModal closeModal={handleOk} />
       </Modal>
     </>
   );
