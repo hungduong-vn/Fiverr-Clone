@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { getJobCats } from "../../../services/jobCategory";
-import { marketList } from "./data";
 import MarketplaceItem from "./MarketplaceItem";
 
 const Styled = styled.ul`
@@ -23,11 +22,11 @@ export default function MarketplaceGrid() {
 
   return (
     <Styled>
-      {marketList.map((ele, idx) => (
+      {jobCats.map((ele, idx) => (
         <MarketplaceItem
           key={idx}
-          text={ele.text}
-          // text={jobCats.length > 0 ? jobCats[idx].name : ele.text}
+          id={ele.id}
+          text={ele.name}
           iconUrl={ele.iconUrl}
         />
       ))}

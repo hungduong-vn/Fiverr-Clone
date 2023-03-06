@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { getJobCatRenderDataById } from "../../services/jobCategory";
 import JobCatBody from "./Body/JobCatBody";
 import JobCatBottom from "./Bottom/JobCatBottom";
-import { defaultJobCat, defaultPopularServices } from "./data/defaultData";
 import JobCatTop from "./Top/JobCatTop";
 
 const Styled = styled.div`

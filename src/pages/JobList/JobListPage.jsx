@@ -1,6 +1,6 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
-import { useLocation, useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import { breakpoints } from "../../constants/common";
 import JobsGrid from "./JobsGrid/JobsGrid";
@@ -11,7 +11,7 @@ import JobsTopBar from "./JobsTopBar/JobsTopBar";
 const Styled = styled.div``;
 
 export default function JobListPage() {
-  const [searchParams, _] = useSearchParams();
+  const [searchParams, ] = useSearchParams();
   const query = decodeURIComponent(searchParams.get("query"))
   const isScreenLarge = useMediaQuery({
     query: `(min-width: ${breakpoints.large}px)`,

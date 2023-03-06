@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
 import { getServiceByJobCatId } from "../../../services/service";
-import { defaultCategories } from "../data/defaultData";
 import JobCatGrid from "./JobCatGrid";
 
 const Styled = styled.div`
