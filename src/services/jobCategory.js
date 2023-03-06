@@ -2,7 +2,7 @@ import { request } from "../configs/axios";
 
 const getJobCats = () =>
   request({
-    url: "jobCategory/get-job-categories-names",
+    url: "jobCategory/get-job-categories",
     method: "GET",
   });
 

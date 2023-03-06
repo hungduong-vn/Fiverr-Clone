@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Styled = styled.li`
@@ -44,13 +45,13 @@ const Styled = styled.li`
   }
 `;
 
-export default function MarketplaceItem({ text, iconUrl }) {
+export default function MarketplaceItem({ text, iconUrl, id }) {
   return (
     <Styled>
-      <a href="#">
+      <Link to={`/categories/${id}`}>
         <img src={iconUrl} alt="" />
         {text}
-      </a>
+      </Link>
     </Styled>
   );
 }

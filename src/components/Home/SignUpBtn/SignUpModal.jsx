@@ -1,11 +1,24 @@
-import { Form, Button, Input } from "antd";
-import { LockOutlined, UserOutlined, MailOutlined } from "@ant-design/icons";
+import { Form, Button, Input, DatePicker, Select } from "antd";
+import {
+  LockOutlined,
+  UserOutlined,
+  MailOutlined,
+} from "@ant-design/icons";
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUserAction } from "../../../store/actions/user.actions";
+import { nations } from "../../../constants/user.const";
 
-export default function SignUpModal() {
+export default function SignUpModal({ closeModal }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const onFinish = (values) => {
     console.log(values);
+    dispatch(setUserAction(values));
+    closeModal();
+    navigate("/user/1");
   };
   return (
     <Styled>
@@ -19,7 +32,7 @@ export default function SignUpModal() {
         validateTrigger="onBlur"
       >
         <Form.Item
-          name="username"
+          name="name"
           rules={[
             {
               required: true,
@@ -97,6 +110,20 @@ export default function SignUpModal() {
             placeholder="Cofirm Password"
           />
         </Form.Item>
+        <Form.Item name="birthday">
+          <DatePicker
+            placeholder="Select your Birthday"
+          />
+        </Form.Item>
+        <Form.Item name="nationality">
+          <Select placeholder="Select your Nationality">
+            {nations.map((nation, idx) => (
+              <Select.Option key={idx} value={nation}>
+                {nation}
+              </Select.Option>
+            ))}
+          </Select>
+        </Form.Item>
         <Form.Item className="login-form-btn-item">
           <Button
             type="primary"
@@ -116,6 +143,9 @@ const Styled = styled.div`
     max-width: 350px;
   }
   .login-form-button {
+    width: 100%;
+  }
+  .ant-picker {
     width: 100%;
   }
 `;
