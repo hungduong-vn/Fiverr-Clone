@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { styles } from "../../../../constants/styles";
 import JobsItemBody from "./JobsItemBody";
@@ -21,19 +22,32 @@ const Styled = styled.div`
 `;
 // Styled.displayName = "JobsItem"
 export default function JobsItem({ job, avatar, meta }) {
-  const user = { name: meta.tenNguoiTao, ava: avatar };
-
+  const seller = { name: meta.sellerName, avatar };
+  const {
+    id: jobId,
+    reviewCount,
+    name: jobName,
+    rating,
+    thumbUrl,
+    sellerId,
+    price,
+  } = job;
+  const navigate = useNavigate();
   // console.log(job.moTaNgan);
   return (
-    <Styled>
-      <JobsItemThumb img={job.hinhAnh} />
+    <Styled
+      onClick={() => {
+        navigate(`/user/${sellerId}/${jobId}`);
+      }}
+    >
+      <JobsItemThumb img={thumbUrl} />
       <JobsItemBody
-        user={user}
-        jobName={job.tenCongViec}
-        star={job.saoCongViec}
-        reviewCount={job.danhGia}
+        seller={seller}
+        jobName={jobName}
+        star={rating}
+        reviewCount={reviewCount}
       />
-      <JobsItemFoot price={job.giaTien} />
+      <JobsItemFoot price={price} />
     </Styled>
   );
 }

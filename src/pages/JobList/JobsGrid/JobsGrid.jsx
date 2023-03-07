@@ -38,7 +38,7 @@ export default function JobsGrid() {
       <div className="jobs-wrapper">
         {jobs.map((ele, idx) => {
           // console.log({ele});
-          const { congViec: job, avatar, ...meta } = ele;
+          const { job, avatar, ...meta } = ele;
           return <JobsItem job={job} avatar={avatar} key={idx} meta={meta} />;
         })}
       </div>
