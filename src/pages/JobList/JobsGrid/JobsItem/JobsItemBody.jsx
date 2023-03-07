@@ -49,15 +49,15 @@ const Styled = styled.div`
   }
 `;
 
-export default function JobsItemBody({ user, jobName, star, reviewCount }) {
+export default function JobsItemBody({ seller, jobName, star, reviewCount }) {
   const reviews =
     reviewCount > 1000 ? parseInt(reviewCount / 1000) + "k+" : reviewCount;
   return (
     <Styled>
       <div className="jobs-creator">
-        <img src={user.ava} alt="" />
+        <img src={seller.avatar} alt="" />
         <div className="jobs-creator-text">
-          <div className="jobs-creator-name">{user.name}</div>
+          <div className="jobs-creator-name">{seller.name}</div>
           <div className="jobs-creator-level">Level 1 seller</div>
         </div>
       </div>
