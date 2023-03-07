@@ -8,6 +8,7 @@ import JobOverview from "./JobOverview/JobOverview";
 import JobPlans from "./JobPlans/JobPlans";
 import JobReviews from "./JobReviews/JobReviews";
 import AboutThisSeller from "./AboutThisSeller/AboutThisSeller";
+import { useMediaQuery } from "react-responsive";
 
 export default function JobDetail() {
   const jobOverviewRef = useRef();
@@ -20,7 +21,7 @@ export default function JobDetail() {
       {
         tabText: "Overview",
         id: "jobOverview",
-        offsetTop: 0,
+        offsetTop: jobOverviewRef.current.offsetTop,
       },
       {
         tabText: "Description",
@@ -39,22 +40,43 @@ export default function JobDetail() {
       },
     ]);
   }, []);
+  const isScreenMedium = useMediaQuery({
+    query: `(min-width : ${breakpoints.medium}px)`,
+  });
   return (
     <Styled>
-      {sections.length > 0 && <JobDetailNav sections={sections} />}
+      {sections.length > 0 && isScreenMedium && (
+        <JobDetailNav sections={sections} />
+      )}
       <div className="max-width-container job-detail-content">
         <JobDetailBreadcrumbs />
-        <div className="jobDetail-scroll-section" id="jobOverview" ref={jobOverviewRef}>
+        <div
+          className="jobDetail-scroll-section"
+          id="jobOverview"
+          ref={jobOverviewRef}
+        >
           <JobOverview />
         </div>
         <JobPlans />
-        <div className="jobDetail-scroll-section" id="aboutThisJob" ref={aboutThisJobRef}>
+        <div
+          className="jobDetail-scroll-section"
+          id="aboutThisJob"
+          ref={aboutThisJobRef}
+        >
           <AboutThisJob />
         </div>
-        <div className="jobDetail-scroll-section" id="aboutThisSeller" ref={aboutThisSellerRef}>
+        <div
+          className="jobDetail-scroll-section"
+          id="aboutThisSeller"
+          ref={aboutThisSellerRef}
+        >
           <AboutThisSeller />
         </div>
-        <div className="jobDetail-scroll-section" id="jobReviews" ref={jobReviewsRef}>
+        <div
+          className="jobDetail-scroll-section"
+          id="jobReviews"
+          ref={jobReviewsRef}
+        >
           <JobReviews />
         </div>
       </div>
@@ -66,6 +88,9 @@ const Styled = styled.div`
   @media screen and (min-width: ${breakpoints.extraLarge}px) {
     /* padding-top: 3rem; */
     padding-bottom: 3rem;
+  }
+  .max-width-container {
+    padding-top: 0;
   }
   .sticky + .job-detail-content {
     padding-top: 53px;
