@@ -29,7 +29,11 @@ export default function SignInBtn(props) {
         footer={null}
         width={350}
       >
-        <SignInModal />
+        <SignInModal
+          closeModal={() => {
+            setIsModalOpen(false);
+          }}
+        />
       </Modal>
     </>
   );

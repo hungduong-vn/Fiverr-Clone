@@ -1,11 +1,29 @@
-import { Form, Button, Input } from "antd";
+import { Form, Button, Input, message } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { signInApi } from "../../../services/auth";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUserAction } from "../../../store/actions/user.actions";
 
-export default function SignInModal() {
-  const onFinish = (values) => {
-    console.log("Success:", values);
+export default function SignInModal({closeModal}) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [showError, setShowError] = useState(null);
+  const onFinish = async (values) => {
+    try {
+      const result = await signInApi(values);
+      const userInfo = result.data.content;
+      dispatch(setUserAction(userInfo));
+      console.log(result);
+      setShowError(false);
+      closeModal();
+      message.success(`Welcome back ${userInfo.name}`);
+      navigate(`/user/${userInfo.id}`);
+    } catch (error) {
+      setShowError(true);
+    }
   };
   return (
     <Styled>
@@ -17,18 +35,25 @@ export default function SignInModal() {
         }}
         onFinish={onFinish}
       >
+        {showError && (
+          <p className="text-danger">(*) Incorrect Email and Password!</p>
+        )}
         <Form.Item
-          name="name"
+          name="email"
           rules={[
             {
               required: true,
-              message: "Please input your Username!",
+              message: "Please input your email!",
+            },
+            {
+              pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+              message: "Please enter valid email!",
             },
           ]}
         >
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
-            placeholder="Username"
+            placeholder="Email"
           />
         </Form.Item>
         <Form.Item
