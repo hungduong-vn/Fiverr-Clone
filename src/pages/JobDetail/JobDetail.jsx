@@ -9,8 +9,15 @@ import JobPlans from "./JobPlans/JobPlans";
 import JobReviews from "./JobReviews/JobReviews";
 import AboutThisSeller from "./AboutThisSeller/AboutThisSeller";
 import { useMediaQuery } from "react-responsive";
+import { useParams } from "react-router-dom";
+import { useAsync } from "../../hooks/useAsync";
+import { getJobById } from "../../services/job";
 
 export default function JobDetail() {
+  const { userId, jobId } = useParams();
+  const job = useAsync({ service: () => getJobById(+jobId) });
+  console.log(job);
+
   const jobOverviewRef = useRef();
   const aboutThisJobRef = useRef();
   const aboutThisSellerRef = useRef();
@@ -70,7 +77,7 @@ export default function JobDetail() {
           id="aboutThisSeller"
           ref={aboutThisSellerRef}
         >
-          <AboutThisSeller />
+          <AboutThisSeller userId={userId} />
         </div>
         <div
           className="jobDetail-scroll-section"

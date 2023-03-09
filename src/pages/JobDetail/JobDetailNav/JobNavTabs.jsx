@@ -28,10 +28,6 @@ export default function JobNavTabs({ sections, jobNavRef }) {
     };
     const setNavSticky = () => {
       const navOffsetTop = componentRef.current.offsetTop;
-      console.log({
-        navOffsetTop,
-        scrollY: window.scrollY,
-      });
       // categoryHeader - position: relative => Add its height = 41px
       if (window.scrollY >= navOffsetTop + 41) {
         jobNavRef.current.classList.add("sticky");

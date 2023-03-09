@@ -28,6 +28,7 @@ const Styled = styled.div`
   .jobNav-content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   &.sticky {
     z-index: 1;
