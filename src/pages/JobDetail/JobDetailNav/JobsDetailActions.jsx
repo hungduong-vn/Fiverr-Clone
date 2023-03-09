@@ -1,5 +1,38 @@
 import React from "react";
+import { ShareAltOutlined, FlagOutlined } from "@ant-design/icons";
+import styled from "styled-components";
+import { styles } from "../../../constants/styles";
+import AddToWishList from "../../../components/Home/AddToWishList/AddToWishList";
 
 export default function JobsDetailActions() {
-  return <div>JobsDetailActions</div>;
+  return (
+    <Styled>
+      <div className="jobActions-item heart">
+        <AddToWishList added={false} />
+      </div>
+      <div className="jobActions-item regular">
+        <FlagOutlined />
+      </div>
+      <div className="jobActions-item regular">
+        <ShareAltOutlined />
+      </div>
+    </Styled>
+  );
 }
+
+const Styled = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  .jobActions-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #c5c6c9;
+    border-radius: 3px;
+    padding: 6px 10px;
+    &.regular:hover svg {
+      fill: ${styles.colorFiverr};
+    }
+  }
+`;
