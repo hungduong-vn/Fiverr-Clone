@@ -5,6 +5,7 @@ export const styles = {
   colorSecondary: "#74767e",
   colorFiverr: "#1dbf73",
   colorDark: "#404415",
+  colorLove: "#f74040",
   weightSemiBold: 600,
   fontSizePrimary: "1rem",
 };
