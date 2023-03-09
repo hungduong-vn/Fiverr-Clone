@@ -1,29 +1,49 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { styles } from "../../../constants/styles";
 
-export default function JobNavTabs({ sections }) {
-  const handleScroll = () => {
-    const tabs = document.querySelectorAll(".jobNav-tab");
-    let current = "";
-    sections.forEach((section) => {
-      if (window.scrollY >= section.offsetTop - 53) {
-        current = section.id;
-      }
-    });
-    tabs.forEach((li) => {
-      li.classList.remove("active");
-      if (li.classList.contains(current)) {
-        li.classList.add("active");
-      }
-    });
-  };
+export default function JobNavTabs({ sections, jobNavRef }) {
+  const componentRef = useRef({ isInit: true, offsetTop: null });
   useEffect(() => {
+    if (componentRef.current.isInit) {
+      componentRef.current.offsetTop = jobNavRef.current.offsetTop;
+      componentRef.current.isInit = false;
+    }
+  });
+  useEffect(() => {
+    const setTabActive = () => {
+      const tabs = document.querySelectorAll(".jobNav-tab");
+      let current = "";
+      sections.forEach((section) => {
+        if (window.scrollY >= section.offsetTop + 53) {
+          current = section.id;
+        }
+      });
+      tabs.forEach((li) => {
+        li.classList.remove("active");
+        if (li.classList.contains(current)) {
+          li.classList.add("active");
+        }
+      });
+    };
+    const setNavSticky = () => {
+      const navOffsetTop = componentRef.current.offsetTop;
+      // categoryHeader - position: relative => Add its height = 41px
+      if (window.scrollY >= navOffsetTop + 41) {
+        jobNavRef.current.classList.add("sticky");
+      } else {
+        jobNavRef.current.classList.remove("sticky");
+      }
+    };
+    const handleScroll = () => {
+      setNavSticky();
+      setTabActive();
+    };
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  });
   const render = () =>
     sections.map((section, idx) => (
       <li key={idx}>
@@ -37,8 +57,10 @@ export default function JobNavTabs({ sections }) {
 
 const Styled = styled.ul`
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
   margin-bottom: 0;
+  white-space: nowrap;
   li {
     margin: 0 0.5rem;
     position: relative;

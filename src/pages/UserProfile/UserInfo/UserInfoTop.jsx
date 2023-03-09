@@ -6,7 +6,7 @@ import { breakpoints } from "../../../constants/common";
 import moment from "moment";
 
 export default function UserInfoTop({
-  user: { name, avatar, birthday, nationality },
+  user: { name, avatar, created_at, nationality },
 }) {
   return (
     <Styled>
@@ -34,7 +34,7 @@ export default function UserInfoTop({
             <div className="user-info-intro-icon">
               <UserOutlined /> Member Since
             </div>
-            <span>{moment(birthday).format("L")}</span>
+            <span>{moment(created_at).format("L")}</span>
           </div>
         </div>
       </Card>

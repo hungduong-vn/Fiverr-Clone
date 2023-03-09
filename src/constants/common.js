@@ -6,6 +6,6 @@ export const breakpoints = {
   categoriesBar: 1267,
 };
 
-export const userRole = { admin: "admin", seller: "seller", client: "client" };
+export const userRole = { admin: "admin", seller: "seller", user: "user" };
 
 export const BASE_URL = "http://localhost:8080/api/";
