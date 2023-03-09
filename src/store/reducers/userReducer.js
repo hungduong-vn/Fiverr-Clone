@@ -1,6 +1,7 @@
+import { USER_INFO_KEY } from "../../constants/user.const";
 import { SET_USER } from "../types/user.types";
 
-let userInfo = localStorage.getItem("user");
+let userInfo = localStorage.getItem(USER_INFO_KEY);
 if (userInfo) {
   userInfo = JSON.parse(userInfo);
 }
@@ -11,7 +12,7 @@ const userReducer = (state = DEFAULT_STATE, { type, payload }) => {
   switch (type) {
     case SET_USER:
       state.userInfo = { ...payload };
-      localStorage.setItem("user", JSON.stringify(payload));
+      localStorage.setItem(USER_INFO_KEY, JSON.stringify(payload));
       return state;
 
     default:

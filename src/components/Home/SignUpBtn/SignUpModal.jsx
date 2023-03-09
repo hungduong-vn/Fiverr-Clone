@@ -1,24 +1,26 @@
 import { Form, Button, Input, DatePicker, Select } from "antd";
-import {
-  LockOutlined,
-  UserOutlined,
-  MailOutlined,
-} from "@ant-design/icons";
+import { LockOutlined, UserOutlined, MailOutlined } from "@ant-design/icons";
 import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUserAction } from "../../../store/actions/user.actions";
 import { nations } from "../../../constants/user.const";
+import { signUpApi } from "../../../services/auth";
+import { userRole } from "../../../constants/common";
 
 export default function SignUpModal({ closeModal }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const onFinish = (values) => {
-    console.log(values);
+  const onFinish = async (values) => {
+    const { confirmPassword, ...submitData } = values;
+    submitData.role = userRole.user;
+    console.log({ submitData });
+    const result = await signUpApi(submitData);
+    console.log(result);
     dispatch(setUserAction(values));
     closeModal();
-    navigate("/user/1");
+    navigate(`/user/${result.data.content.id}`);
   };
   return (
     <Styled>
@@ -111,9 +113,7 @@ export default function SignUpModal({ closeModal }) {
           />
         </Form.Item>
         <Form.Item name="birthday">
-          <DatePicker
-            placeholder="Select your Birthday"
-          />
+          <DatePicker placeholder="Select your Birthday" />
         </Form.Item>
         <Form.Item name="nationality">
           <Select placeholder="Select your Nationality">

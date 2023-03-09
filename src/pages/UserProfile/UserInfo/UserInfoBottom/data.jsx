@@ -26,13 +26,13 @@ export const userProfile = [
       <ul>
         <li>
           <a href="#" className="user-socials">
-            <i class="fab fa-facebook-f"></i>
+            <i className="fab fa-facebook-f"></i>
             <span className="user-socials-name">Facebook</span>
           </a>
         </li>
         <li>
           <a href="#" className="user-socials">
-            <i class="fab fa-linkedin-in"></i>
+            <i className="fab fa-linkedin-in"></i>
             <span className="user-socials-name">LinkedIn</span>
           </a>
         </li>
