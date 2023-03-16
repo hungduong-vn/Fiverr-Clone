@@ -11,15 +11,14 @@ export default function UserInfoBottom() {
       <Card>
         {userProfile.map((ele, id) => {
           return (
-            <>
+            <React.Fragment key={id}>
               {id > 0 && <Divider />}
               <UserInfoBottomBox
-                key={id}
                 title={ele.title}
                 updateFunc={ele.updateFunc}
                 content={ele.content}
               />
-            </>
+            </React.Fragment>
           );
         })}
       </Card>

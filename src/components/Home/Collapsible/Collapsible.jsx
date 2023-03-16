@@ -66,7 +66,7 @@ export default function Collapsible({ title, content }) {
         type="button"
         className="collapsible"
       >
-        {title}
+        <span className="collapsible-title">{title}</span>
         <i className="collapsible-icon fas fa-chevron-down"></i>
         {/* <i className="fas fa-chevron-up"></i> */}
       </button>
