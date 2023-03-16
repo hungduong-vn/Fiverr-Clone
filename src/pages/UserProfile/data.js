@@ -1,12 +1,22 @@
 import { userRole } from "../../constants/common";
 
 export const defSellerInfo = {
+  self_intro:
+    "I'm a Software Engineer with 8 years of experience and I'm most skilled at MERN stack.",
+  languages: [
+    { name: "Vietnamese", level: "Native Speaker" },
+    { name: "English", level: "Professional Proficiency" },
+  ],
+  title: "Fullstack Web Developer",
+
   id: 1,
   name: "Japser Duong",
   email: "duongngochung13@gmail.com",
   password: "1234",
   phone: "01233456789",
-  birthday: "03-12-2000",
+  nationality: "Vietnam",
+  birthday: "03-12-2000", // "2000-12-03T00:00:00.000Z"
+  created_at: "09-03-2023", // "2023-03-09T04:52:38.000Z"
   gender: true,
   role: `${userRole.seller}`,
   skills: `["HTML/CSS", "JavaScript", "Responsive Website"]`,
