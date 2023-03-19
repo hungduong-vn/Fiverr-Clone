@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import StarIcon from "../../../../components/Svg/StarIcon";
+import FullStarIcon from "../../../../components/Svg/Stars/FullStarIcon";
 import { styles } from "../../../../constants/styles";
 
 const Styled = styled.div`
@@ -66,7 +66,7 @@ export default function JobsItemBody({ seller, jobName, star, reviewCount }) {
         <div>{jobName}</div>
       </div>
       <div className="jobs-rating">
-        <StarIcon />
+        <FullStarIcon />
         {star}
         <span className="jobs-reviews">({reviews})</span>
       </div>
