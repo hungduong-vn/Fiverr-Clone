@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import StarIcon from "../../../../components/Svg/StarIcon";
 import { breakpoints } from "../../../../constants/common";
 import { styles } from "../../../../constants/styles";
+import Stars from "../../../../components/Home/Stars/Stars";
 import ContactSellerBtn from "../../JobPlans/ContactSellerBtn/ContactSellerBtn";
 
 export default function AboutSellerTop({ sellerTop }) {
@@ -19,12 +19,7 @@ export default function AboutSellerTop({ sellerTop }) {
         </Link>
         <div className="seller-title">{sellerTop.title}</div>
         <div className="seller-rating">
-          <div className=" stars">
-            {[...Array(stars)].map((_, idx) => (
-              <StarIcon key={idx} />
-            ))}
-            <span className="star">5</span>
-          </div>
+          <Stars totalStars={stars}/>
           <span className="rating-count">(500)</span>
         </div>
         <div className="seller-contact">

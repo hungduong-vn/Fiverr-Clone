@@ -2,14 +2,14 @@ import React from "react";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import StarIcon from "../../../components/Svg/StarIcon";
 import { breakpoints } from "../../../constants/common";
+import Stars from "../../../components/Home/Stars/Stars";
 
 export default function JobOverviewTop({ avatar, sellerId }) {
   const isScreenMedium = useMediaQuery({
     query: `(min-width : ${breakpoints.medium}px)`,
   });
-  const stars = isScreenMedium ? 5 : 1;
+  const starsDisplay = isScreenMedium ? 5 : 1;
   return (
     <Styled className="job-overview-top">
       <img
@@ -21,17 +21,14 @@ export default function JobOverviewTop({ avatar, sellerId }) {
         alt="job-seller-avatar"
       />
       <div className="seller-info">
-        <Link to={`/user/${sellerId || 1}`} className="seller-name ">hungduong2k</Link>
+        <Link to={`/user/${sellerId || 1}`} className="seller-name ">
+          hungduong2k
+        </Link>
         <div className="seller-badge ">Top Rated Seller</div>
       </div>
       <div className="job-rating">
         {"|"}
-        <div className=" stars">
-          {[...Array(stars)].map((_, idx) => (
-            <StarIcon key={idx} />
-          ))}
-          <span className="star">5</span>
-        </div>
+        <Stars totalStars={3.7} numStars={starsDisplay} />
         <span className="review-count">({500})</span>
       </div>
     </Styled>
@@ -46,14 +43,6 @@ const Styled = styled.div`
     display: flex;
     align-items: center;
     gap: 5px;
-  }
-  .stars {
-    color: #ffbe5b;
-    display: flex;
-    align-items: center;
-  }
-  .star {
-    margin-left: 5px;
   }
   .seller-avatar {
     border-radius: 50%;
