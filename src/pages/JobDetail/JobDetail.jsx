@@ -14,7 +14,7 @@ import { sections } from "./data";
 import { useMediaQuery } from "react-responsive";
 
 export default function JobDetail() {
-  const { userId, jobId } = useParams();
+  const { userName, jobId } = useParams();
   const { state: job } = useAsync({ service: () => getJobById(+jobId) });
   console.log(job);
 
@@ -41,7 +41,7 @@ export default function JobDetail() {
             <AboutThisJob />
           </div>
           <div id="aboutThisSeller">
-            <AboutThisSeller userId={userId} />
+            <AboutThisSeller userName={userName} />
           </div>
           <div id="jobReviews">
             <JobReviews />

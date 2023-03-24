@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { breakpoints } from "../../../constants/common";
 import Stars from "../../../components/Home/Stars/Stars";
 
-export default function JobOverviewTop({ avatar, sellerId }) {
+export default function JobOverviewTop({ avatar, name }) {
   const isScreenMedium = useMediaQuery({
     query: `(min-width : ${breakpoints.medium}px)`,
   });
@@ -21,8 +21,8 @@ export default function JobOverviewTop({ avatar, sellerId }) {
         alt="job-seller-avatar"
       />
       <div className="seller-info">
-        <Link to={`/user/${sellerId || 1}`} className="seller-name ">
-          hungduong2k
+        <Link to={`/user/${name || "admin_fiverr"}`} className="seller-name ">
+          admin
         </Link>
         <div className="seller-badge ">Top Rated Seller</div>
       </div>

@@ -4,7 +4,7 @@ import { defSellerInfo } from "../../UserProfile/data";
 import AboutSellerTop from "./AboutSellerTop/AboutSellerTop";
 import AboutThisSellerBody from "./AboutThisSellerBody/AboutThisSellerBody";
 
-export default function AboutThisSeller({ userId }) {
+export default function AboutThisSeller({ userName }) {
   const seller = defSellerInfo;
   const {
     name,
