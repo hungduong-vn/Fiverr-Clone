@@ -11,7 +11,7 @@ export default function CustomSlider({ settings, children }) {
     slidesToScroll: 1,
     ...settings,
   };
-  const sliderSettings = settings || DEFAULT_SETTINGS;
+  const sliderSettings = DEFAULT_SETTINGS;
   return (
     <Styled>
       <Slider {...sliderSettings}>{children}</Slider>
