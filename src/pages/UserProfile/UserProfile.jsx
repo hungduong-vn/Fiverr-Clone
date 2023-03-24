@@ -1,24 +1,36 @@
 import { Col, Row } from "antd";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
+import { useAsync } from "../../hooks/useAsync";
+import { getUserByName } from "../../services/user";
 import UserInfo from "./UserInfo/UserInfo";
-import UserJobs from "./UserJobs/UserJobs";
+import SellingGigs from "./UserJobs/SellingGigs/SellingGigs";
 
 export default function UserProfile() {
-  const { userInfo } = useSelector((state) => state.userReducer);
-  console.log(userInfo);
+  const { userName } = useParams();
+  const { state: userInfo } = useAsync({
+    service: () => getUserByName(userName),
+  });
+  const navigate = useNavigate();
+  useEffect(() => {
+    console.log({ userInfo });
+    if (userInfo === null) {
+      navigate("/not-found");
+    }
+  }, [userInfo]);
   return (
     <Styled className="max-width-container">
-      <Row gutter={24}>
-        <Col xs={24} sm={10} md={8} lg={6}>
-          <UserInfo userInfo={userInfo} />
-        </Col>
-        
-        <Col xs={24} sm={14} md={16} lg={18}>
-          <UserJobs />
-        </Col>
-      </Row>
+      {userInfo && (
+        <Row gutter={24}>
+          <Col xs={24} sm={10} md={8} lg={6}>
+            <UserInfo userInfo={userInfo} isEdit={false} />
+          </Col>
+          <Col xs={24} sm={14} md={16} lg={18}>
+            <SellingGigs sectionTitle={`${userInfo.name}'s Gigs`} />
+          </Col>
+        </Row>
+      )}
     </Styled>
   );
 }
