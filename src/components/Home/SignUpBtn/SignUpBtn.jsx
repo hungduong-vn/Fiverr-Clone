@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal } from "antd";
 import SignUpModal from "./SignUpModal.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { setSignUpModal } from "../../../store/actions/view.action.js";
 export default function SignUpBtn(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
@@ -15,6 +17,18 @@ export default function SignUpBtn(props) {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(
+      setSignUpModal({
+        open: () => setIsModalOpen(true),
+        close: () => setIsModalOpen(false),
+      })
+    );
+  }, []);
+  const { signInModal, signUpModal } = useSelector(
+    (state) => state.viewReducer
+  );
   return (
     <>
       <button className={props.className} onClick={showModal}>
@@ -25,7 +39,20 @@ export default function SignUpBtn(props) {
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
-        footer={null}
+        footer={
+          <div className="d-flex justify-content-center">
+            Already a member?{" "}
+            <button
+              className="text-success pl-2"
+              onClick={() => {
+                signUpModal.close();
+                signInModal.open();
+              }}
+            >
+              Sign In
+            </button>
+          </div>
+        }
         width={350}
       >
         <SignUpModal closeModal={handleOk} />
