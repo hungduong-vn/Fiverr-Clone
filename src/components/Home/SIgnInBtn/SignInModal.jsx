@@ -7,20 +7,28 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUserAction } from "../../../store/actions/user.actions";
 
-export default function SignInModal({closeModal}) {
+export default function SignInModal({ closeModal }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showError, setShowError] = useState(null);
   const onFinish = async (values) => {
     try {
-      const result = await signInApi(values);
+      const { identifier, password } = values;
+      let submitData = { password };
+      const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+      if (identifier.match(emailPattern)) {
+        submitData.email = identifier;
+      } else {
+        submitData.name = identifier;
+      }
+      const result = await signInApi(submitData);
       const userInfo = result.data.content;
       dispatch(setUserAction(userInfo));
       console.log(result);
       setShowError(false);
       closeModal();
       message.success(`Welcome back ${userInfo.name}`);
-      navigate(`/user/${userInfo.id}`);
+      // navigate(`/user/${userInfo.name}`);
     } catch (error) {
       setShowError(true);
     }
@@ -36,24 +44,20 @@ export default function SignInModal({closeModal}) {
         onFinish={onFinish}
       >
         {showError && (
-          <p className="text-danger">(*) Incorrect Email and Password!</p>
+          <p className="text-danger">(*) Incorrect Email/Username and Password!</p>
         )}
         <Form.Item
-          name="email"
+          name="identifier"
           rules={[
             {
               required: true,
               message: "Please input your email!",
             },
-            {
-              pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-              message: "Please enter valid email!",
-            },
           ]}
         >
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
-            placeholder="Email"
+            placeholder="Username or Email"
           />
         </Form.Item>
         <Form.Item
