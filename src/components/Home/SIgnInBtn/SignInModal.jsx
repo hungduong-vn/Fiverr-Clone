@@ -3,12 +3,10 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { signInApi } from "../../../services/auth";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUserAction } from "../../../store/actions/user.actions";
 
 export default function SignInModal({ closeModal }) {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showError, setShowError] = useState(null);
   const onFinish = async (values) => {
