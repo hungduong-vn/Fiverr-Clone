@@ -1,4 +1,4 @@
-import { Form, Button, Input, DatePicker, Select } from "antd";
+import { Form, Button, Input, DatePicker, Select, Row, Col } from "antd";
 import { LockOutlined, UserOutlined, MailOutlined } from "@ant-design/icons";
 import React from "react";
 import styled from "styled-components";
@@ -8,6 +8,8 @@ import { setUserAction } from "../../../store/actions/user.actions";
 import { nations } from "../../../constants/user.const";
 import { signUpApi } from "../../../services/auth";
 import { userRole } from "../../../constants/common";
+import { existedName } from "../../../utils/user.utils";
+import { emailValidation } from "./signUp.validation";
 
 export default function SignUpModal({ closeModal }) {
   const navigate = useNavigate();
@@ -18,9 +20,10 @@ export default function SignUpModal({ closeModal }) {
     console.log({ submitData });
     const result = await signUpApi(submitData);
     console.log(result);
-    dispatch(setUserAction(values));
+    const userProfile = result.data.content;
+    dispatch(setUserAction(userProfile));
     closeModal();
-    navigate(`/user/${result.data.content.id}`);
+    navigate(`/user/${result.data.content.name}`);
   };
   return (
     <Styled>
@@ -37,8 +40,40 @@ export default function SignUpModal({ closeModal }) {
           name="name"
           rules={[
             {
-              required: true,
-              message: "Please input your Username!",
+              validator: (_, value) => {
+                const minLength = 6;
+                if (!value) {
+                  return Promise.reject(
+                    new Error("Please input your Username!")
+                  );
+                }
+                if (value.length < minLength) {
+                  return Promise.reject(
+                    new Error(
+                      "That’s too short. A great username must include at least 6 characters."
+                    )
+                  );
+                }
+                const pattern = /^[A-Za-z][A-Za-z0-9_]{5,}$/g;
+                const isValid = value.match(pattern);
+                return isValid
+                  ? Promise.resolve()
+                  : Promise.reject(
+                      new Error(
+                        "Username must begin with a letter and can include numbers and underscores."
+                      )
+                    );
+              },
+            },
+            {
+              validator: async (_, value) => {
+                const message =
+                  "Username already existed. Please enter a new one.";
+                const isExisted = await existedName(value);
+                return isExisted
+                  ? Promise.reject(new Error(message))
+                  : Promise.resolve();
+              },
             },
           ]}
         >
@@ -48,17 +83,9 @@ export default function SignUpModal({ closeModal }) {
           />
         </Form.Item>
         <Form.Item
+          hasFeedback
           name="email"
-          rules={[
-            {
-              required: true,
-              message: "Please input your Email!",
-            },
-            {
-              pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-              message: "Please enter valid email!",
-            },
-          ]}
+          rules={[{ validator: emailValidation }]}
         >
           <Input
             type="email"
@@ -109,21 +136,34 @@ export default function SignUpModal({ closeModal }) {
           <Input.Password
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
-            placeholder="Cofirm Password"
+            placeholder="Confirm Password"
           />
         </Form.Item>
         <Form.Item name="birthday">
           <DatePicker placeholder="Select your Birthday" />
         </Form.Item>
-        <Form.Item name="nationality">
-          <Select placeholder="Select your Nationality">
-            {nations.map((nation, idx) => (
-              <Select.Option key={idx} value={nation}>
-                {nation}
-              </Select.Option>
-            ))}
-          </Select>
-        </Form.Item>
+        <Row gutter={10}>
+          <Col span={13}>
+            <Form.Item name="nationality">
+              <Select placeholder="Your Nationality">
+                {nations.map((nation, idx) => (
+                  <Select.Option key={idx} value={nation}>
+                    {nation}
+                  </Select.Option>
+                ))}
+              </Select>
+            </Form.Item>
+          </Col>
+          <Col span={11}>
+            <Form.Item name="gender">
+              <Select placeholder="Your Gender">
+                <Select.Option value={0}>Male</Select.Option>
+                <Select.Option value={1}>Female</Select.Option>
+              </Select>
+            </Form.Item>
+          </Col>
+        </Row>
+
         <Form.Item className="login-form-btn-item">
           <Button
             type="primary"
