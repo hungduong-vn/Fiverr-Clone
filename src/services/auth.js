@@ -14,4 +14,10 @@ const signUpApi = (data) =>
     data,
   });
 
-export { signInApi, signUpApi };
+const checkUsernameExistedApi = (data) =>
+  request({ url: "auth/check-username-existed", method: "POST", data });
+
+const checkEmailExistedApi = (data) =>
+  request({ url: "auth/check-email-existed", method: "POST", data });
+
+export { signInApi, signUpApi, checkUsernameExistedApi, checkEmailExistedApi };

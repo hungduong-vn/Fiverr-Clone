@@ -14,7 +14,7 @@ export default function AboutSellerTop({ sellerTop }) {
         <img src={sellerTop.avatar} alt="" />
       </div>
       <div className="about-seller-meta">
-        <Link className="seller-name-link" to={`/user/${sellerTop.id}`}>
+        <Link className="seller-name-link" to={`/user/${sellerTop.name}`}>
           {sellerTop.name}
         </Link>
         <div className="seller-title">{sellerTop.title}</div>

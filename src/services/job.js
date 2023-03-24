@@ -1,3 +1,4 @@
+import { request } from "../configs/axios";
 import { jobs } from "../pages/JobList/JobsGrid/data";
 
 const getJobById = async (id) => {
@@ -9,4 +10,24 @@ const getJobById = async (id) => {
   // axios
 };
 
-export { getJobById };
+const getLovedJob = async ({ userId, jobId }) =>
+  request({
+    url: `job/get-loved-job?userId=${userId}&jobId=${jobId}`,
+    method: "GET",
+  });
+
+const addLovedJob = async (userId, jobId) =>
+  request({
+    url: `job/add-loved-job`,
+    method: "POST",
+    data: { userId, jobId },
+  });
+
+const removeLovedJob = async (userId, jobId) =>
+  request({
+    url: `job/remove-loved-job`,
+    method: "DELETE",
+    data: { userId, jobId },
+  });
+
+export { getJobById, getLovedJob, addLovedJob, removeLovedJob };

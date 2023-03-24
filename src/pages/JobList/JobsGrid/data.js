@@ -18,7 +18,7 @@ export const jobs = [
     jobCategoryId: 1,
     jobSubCategoryName: "Visual Design",
     serviceName: "Logo Design",
-    sellerName: "admin",
+    sellerName: "admin_fiverr",
     avatar: "http://sc04.alicdn.com/kf/Hc3e61591078043e09dba7808a6be5d21n.jpg",
   },
   {
@@ -40,7 +40,7 @@ export const jobs = [
     jobCategoryId: 1,
     jobSubCategoryName: "Visual Design",
     serviceName: "Logo Design",
-    sellerName: "admin",
+    sellerName: "admin_fiverr",
     avatar: "http://sc04.alicdn.com/kf/Hc3e61591078043e09dba7808a6be5d21n.jpg",
   },
   {
@@ -63,7 +63,7 @@ export const jobs = [
     jobCategoryId: 1,
     jobSubCategoryName: "Visual Design",
     serviceName: "Brand Style Guides",
-    sellerName: "admin",
+    sellerName: "admin_fiverr",
     avatar: "http://sc04.alicdn.com/kf/Hc3e61591078043e09dba7808a6be5d21n.jpg",
   },
   {
@@ -85,7 +85,7 @@ export const jobs = [
     jobCategoryId: 1,
     jobSubCategoryName: "Visual Design",
     serviceName: "Brand Style Guides",
-    sellerName: "admin",
+    sellerName: "admin_fiverr",
     avatar: "http://sc04.alicdn.com/kf/Hc3e61591078043e09dba7808a6be5d21n.jpg",
   },
   {
@@ -107,7 +107,7 @@ export const jobs = [
     jobCategoryId: 3,
     jobSubCategoryName: "Content Writing & Editing",
     serviceName: "Social Media Marketing",
-    sellerName: "admin",
+    sellerName: "admin_fiverr",
     avatar: "http://sc04.alicdn.com/kf/Hc3e61591078043e09dba7808a6be5d21n.jpg",
   },
 ];

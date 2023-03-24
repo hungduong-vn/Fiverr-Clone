@@ -7,17 +7,34 @@ import { useAsync } from "../../../hooks/useAsync";
 import { getJobCats } from "../../../services/jobCategory";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import SideBarSignedIn from "./SideBarSignedIn";
+import Logout from "../../Header/Logout/Logout";
 
 export default function SideBarContent({ closeSideBar }) {
   const { state: data } = useAsync({ service: getJobCats });
+  const { userInfo } = useSelector((state) => state.userReducer);
+  const isSignedIn = !!userInfo;
   return (
     <Styled>
       <div className="sidebar-header">
-        <SignUpBtn closeSideBar={closeSideBar} innerText="Join Fiverr" />
+        {isSignedIn ? (
+          <SideBarSignedIn
+            name={userInfo.name}
+            avatar={userInfo.avatar}
+            closeSideBar={closeSideBar}
+          />
+        ) : (
+          <SignUpBtn closeSideBar={closeSideBar} innerText="Join Fiverr" />
+        )}
       </div>
       <div className="sidebar-menu">
         <div className="sidebar-item">
-          <SignInBtn closeSideBar={closeSideBar} innerText="Sign in" />
+          {isSignedIn ? (
+            <Logout callback={closeSideBar} />
+          ) : (
+            <SignInBtn closeSideBar={closeSideBar} innerText="Sign in" />
+          )}
         </div>
         <SideBarCatgories
           title={"Browse Categories"}

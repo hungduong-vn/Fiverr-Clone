@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import FullStarIcon from "../../../../components/Svg/Stars/FullStarIcon";
 import { styles } from "../../../../constants/styles";
@@ -18,6 +19,10 @@ const Styled = styled.div`
       margin-left: 8px;
       .jobs-creator-name {
         font-weight: 600;
+        color: #000;
+        &:hover {
+          text-decoration: underline;
+        }
       }
       .jobs-creator-level {
         font-size: 14px;
@@ -28,6 +33,7 @@ const Styled = styled.div`
   .jobs-name {
     padding: 13px 0 5px;
     transition: all 0.3s;
+    cursor: pointer;
     div {
       height: 45px;
       word-wrap: break-word;
@@ -50,7 +56,13 @@ const Styled = styled.div`
   }
 `;
 
-export default function JobsItemBody({ seller, jobName, star, reviewCount }) {
+export default function JobsItemBody({
+  seller,
+  jobName,
+  star,
+  reviewCount,
+  handleClick,
+}) {
   const reviews =
     reviewCount > 1000 ? parseInt(reviewCount / 1000) + "k+" : reviewCount;
   return (
@@ -58,11 +70,13 @@ export default function JobsItemBody({ seller, jobName, star, reviewCount }) {
       <div className="jobs-creator">
         <img src={seller.avatar} alt="" />
         <div className="jobs-creator-text">
-          <div className="jobs-creator-name">{seller.name}</div>
+          <Link to={`/user/${seller.name}`} className="jobs-creator-name">
+            {seller.name}
+          </Link>
           <div className="jobs-creator-level">Level 1 seller</div>
         </div>
       </div>
-      <div className="jobs-name">
+      <div className="jobs-name" onClick={handleClick}>
         <div>{jobName}</div>
       </div>
       <div className="jobs-rating">

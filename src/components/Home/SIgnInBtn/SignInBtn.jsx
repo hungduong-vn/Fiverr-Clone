@@ -1,6 +1,9 @@
 import { Modal } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setSignInModal } from "../../../store/actions/view.action";
 import SignInModal from "./SignInModal";
+import SignInModalFooter from "./SignInModalFooter";
 
 export default function SignInBtn(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,6 +19,15 @@ export default function SignInBtn(props) {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(
+      setSignInModal({
+        open: () => setIsModalOpen(true),
+        close: handleCancel,
+      })
+    );
+  }, []);
   return (
     <>
       <button className={props.className} onClick={openModal}>
@@ -26,7 +38,7 @@ export default function SignInBtn(props) {
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
-        footer={null}
+        footer={<SignInModalFooter closeModal={() => setIsModalOpen(false)} />}
         width={350}
       >
         <SignInModal

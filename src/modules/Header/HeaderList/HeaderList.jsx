@@ -2,9 +2,29 @@ import React from "react";
 import SignInBtn from "../../../components/Home/SIgnInBtn/SignInBtn";
 import SignUpBtn from "../../../components/Home/SignUpBtn/SignUpBtn";
 import GlobeIcon from "../../../components/Svg/GlobeIcon";
+import { useSelector } from "react-redux";
+import HeaderListSignedIn from "../HeaderListSignedIn/HeaderListSignedIn";
 
 import "./HeaderList.scss";
 export default function HeaderList() {
+  const { userInfo } = useSelector((state) => state.userReducer);
+  const renderNotSignIn = () => (
+    <>
+      {" "}
+      <li className="header__item hide-sm">
+        <SignInBtn className="header__item__text" innerText="Sign in" />
+      </li>
+      <li className="header__item">
+        <SignUpBtn
+          innerText="Join"
+          className="join__btn btn btn-outline-success"
+        />
+      </li>
+    </>
+  );
+  const renderSignedIn = (name, avatar) => (
+    <HeaderListSignedIn avatar={avatar} name={name} />
+  );
   return (
     <nav className="header__nav d-flex">
       <ul className="header__items">
@@ -36,15 +56,9 @@ export default function HeaderList() {
             Become a Seller
           </a>
         </li>
-        <li className="header__item hide-sm">
-            <SignInBtn className="header__item__text" innerText="Sign in" />
-        </li>
-        <li className="header__item">
-          <SignUpBtn
-            innerText="Join"
-            className="join__btn btn btn-outline-success"
-          />
-        </li>
+        {userInfo?.name
+          ? renderSignedIn(userInfo.name, userInfo.avatar)
+          : renderNotSignIn()}
       </ul>
     </nav>
   );

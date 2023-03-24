@@ -7,7 +7,7 @@ import JobsItemFoot from "./JobsItemFoot";
 import JobsItemThumb from "./JobsItemThumb";
 
 const Styled = styled.div`
-  cursor: pointer;
+  /* cursor: pointer; */
   border: 1px solid ${styles.colorLight};
   &:hover {
     .jobs-name {
@@ -29,25 +29,23 @@ export default function JobsItem({ job, avatar, meta }) {
     name: jobName,
     rating,
     thumbUrl,
-    sellerId,
     price,
   } = job;
   const navigate = useNavigate();
-  // console.log(job.moTaNgan);
+  const handleClick = () => {
+    navigate(`/user/${seller.name}/${jobId}`);
+  };
   return (
-    <Styled
-      onClick={() => {
-        navigate(`/user/${sellerId}/${jobId}`);
-      }}
-    >
-      <JobsItemThumb img={thumbUrl} />
+    <Styled>
+      <JobsItemThumb img={thumbUrl} handleClick={handleClick} />
       <JobsItemBody
         seller={seller}
         jobName={jobName}
         star={rating}
         reviewCount={reviewCount}
+        handleClick={handleClick}
       />
-      <JobsItemFoot price={price} />
+      <JobsItemFoot price={price} jobId={jobId} />
     </Styled>
   );
 }

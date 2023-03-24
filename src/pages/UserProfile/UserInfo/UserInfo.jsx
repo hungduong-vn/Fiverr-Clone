@@ -3,12 +3,12 @@ import styled from "styled-components";
 import UserInfoBottom from "./UserInfoBottom/UserInfoBottom";
 import UserInfoTop from "./UserInfoTop";
 
-export default function UserInfo({ userInfo }) {
+export default function UserInfo({ userInfo, isEdit }) {
   return (
     <Styled>
-      <UserInfoTop user={userInfo} />
+      <UserInfoTop user={userInfo} isEdit={isEdit || false} />
       <div className="divider"></div>
-      <UserInfoBottom />
+      <UserInfoBottom isEdit={isEdit || false} />
     </Styled>
   );
 }

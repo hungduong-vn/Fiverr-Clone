@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Styled = styled.div`
   overflow: hidden;
+  cursor: pointer;
   img {
     width: 100%;
     height: auto;
@@ -11,9 +12,9 @@ const Styled = styled.div`
   }
 `;
 
-export default function JobsItemThumb({ img }) {
+export default function JobsItemThumb({ img, handleClick }) {
   return (
-    <Styled className="jobs-item-thumb">
+    <Styled onClick={handleClick} className="jobs-item-thumb">
       <img src={img} alt="" />
     </Styled>
   );
