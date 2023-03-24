@@ -8,8 +8,7 @@ import { setUserAction } from "../../../store/actions/user.actions";
 import { nations } from "../../../constants/user.const";
 import { signUpApi } from "../../../services/auth";
 import { userRole } from "../../../constants/common";
-import { existedName } from "../../../utils/user.utils";
-import { emailValidation } from "./signUp.validation";
+import { emailValidation, usernameValidation } from "./signUp.validation";
 
 export default function SignUpModal({ closeModal }) {
   const navigate = useNavigate();
@@ -37,45 +36,9 @@ export default function SignUpModal({ closeModal }) {
         validateTrigger="onBlur"
       >
         <Form.Item
+          hasFeedback
           name="name"
-          rules={[
-            {
-              validator: (_, value) => {
-                const minLength = 6;
-                if (!value) {
-                  return Promise.reject(
-                    new Error("Please input your Username!")
-                  );
-                }
-                if (value.length < minLength) {
-                  return Promise.reject(
-                    new Error(
-                      "That’s too short. A great username must include at least 6 characters."
-                    )
-                  );
-                }
-                const pattern = /^[A-Za-z][A-Za-z0-9_]{5,}$/g;
-                const isValid = value.match(pattern);
-                return isValid
-                  ? Promise.resolve()
-                  : Promise.reject(
-                      new Error(
-                        "Username must begin with a letter and can include numbers and underscores."
-                      )
-                    );
-              },
-            },
-            {
-              validator: async (_, value) => {
-                const message =
-                  "Username already existed. Please enter a new one.";
-                const isExisted = await existedName(value);
-                return isExisted
-                  ? Promise.reject(new Error(message))
-                  : Promise.resolve();
-              },
-            },
-          ]}
+          rules={[{ validator: usernameValidation }]}
         >
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
