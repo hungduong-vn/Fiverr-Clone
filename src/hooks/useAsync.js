@@ -10,6 +10,7 @@ export const useAsync = ({ service, condition = true, deps = [] }) => {
     setLoadingState({ isLoading: true });
     try {
       const result = await service();
+      // console.log(result.data.content);
       setLoadingState({ isLoading: false });
       setState(result.data.content);
     } catch (error) {
