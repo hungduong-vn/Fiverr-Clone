@@ -4,11 +4,13 @@ import CustomSlider from "../../../../components/Home/Slider/CustomSlider";
 import { breakpoints } from "../../../../constants/common";
 import { jobs } from "../../../JobList/JobsGrid/data";
 import JobsItem from "../../../JobList/JobsGrid/JobsItem/JobsItem";
+import UserJobsEmpty from "../UserJobsEmpty/UserJobsEmpty";
 
 export default function UserJobsSection({
   sectionTitle,
   listData,
   customSlide,
+  emptyState,
 }) {
   const data = listData || jobs;
   const sliderSettings = {
@@ -32,16 +34,21 @@ export default function UserJobsSection({
   return (
     <Styled>
       <h4 className="user-jobs-section-title">{sectionTitle}</h4>
-      <CustomSlider settings={sliderSettings}>
-        {data.map((ele, idx) => {
-          const { job, avatar, ...meta } = ele;
-          return (
-            <div className="pr-2" key={idx}>
-              <JobsItem job={job} avatar={avatar} meta={meta} />
-            </div>
-          );
-        })}
-      </CustomSlider>
+      {data?.length > 0 ? (
+        <CustomSlider settings={sliderSettings}>
+          {data.map((ele, idx) => {
+            const { seller, ...rest } = ele;
+            const job = ele.job || rest;
+            return (
+              <div className="pr-2" key={idx}>
+                <JobsItem job={job} seller={seller} />
+              </div>
+            );
+          })}
+        </CustomSlider>
+      ) : (
+        <UserJobsEmpty Icon={emptyState.Icon} heading={emptyState.heading} buttonText={emptyState.buttonText}/>
+      )}
     </Styled>
   );
 }
