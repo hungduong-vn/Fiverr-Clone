@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import styled from "styled-components";
 import { styles } from "../../../constants/styles";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addLovedJob,
   getLovedJob,
   removeLovedJob,
 } from "../../../services/job";
 import { message } from "antd";
+import { changeFavJobs } from "../../../store/actions/job.actions";
 message.config({
   maxCount: 2,
 });
@@ -22,13 +23,14 @@ export default function AddToWishList({ jobId }) {
   };
   useEffect(() => {
     if (userInfo) {
-      console.log("Re-render");
+      // console.log("Re-render");
       fetchLovedJob();
     }
   });
+  const dispatch = useDispatch();
   const { signInModal } = useSelector((state) => state.viewReducer);
   const handleClick = async () => {
-    console.log({ jobId, isAdded });
+    // console.log({ jobId, isAdded });
     // Check Logged In
     if (userInfo) {
       // If yes -> call API addLovedJob
@@ -49,6 +51,8 @@ export default function AddToWishList({ jobId }) {
           console.log(error);
         }
       }
+      dispatch(changeFavJobs(Date.now()));
+      // window.location.reload();
     } else {
       // no -> open signUpModal
       message.info("Please sign in first", 2);

@@ -1,4 +1,5 @@
 import { combineReducers, createStore } from "redux";
+import jobReducer from "./reducers/jobReducer";
 import { layoutReducer } from "./reducers/layoutReducer";
 import { userReducer } from "./reducers/userReducer";
 import { viewReducer } from "./reducers/viewReducer";
@@ -6,7 +7,8 @@ import { viewReducer } from "./reducers/viewReducer";
 const rootReducer = combineReducers({
   layoutReducer,
   userReducer,
-  viewReducer
+  viewReducer,
+  jobReducer,
 });
 
 export const store = createStore(

@@ -1,12 +1,18 @@
 import { Col, Row } from "antd";
 import React from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { useAsync } from "../../../hooks/useAsync";
+import { getUserByNameAuthApi } from "../../../services/user";
 import UserInfo from "../UserInfo/UserInfo";
 import UserJobs from "../UserJobs/UserJobs";
 
 export default function EditProfile() {
   const { userInfo } = useSelector((state) => state.userReducer);
+  const { userName } = useParams();
+  const { state } = useAsync({ service: () => getUserByNameAuthApi(userName) });
+  console.log({ state });
   return (
     <Styled className="max-width-container">
       <Row gutter={24}>

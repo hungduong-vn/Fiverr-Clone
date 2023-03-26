@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SignInBtn from "../../../components/Home/SIgnInBtn/SignInBtn";
 import SignUpBtn from "../../../components/Home/SignUpBtn/SignUpBtn";
 import GlobeIcon from "../../../components/Svg/GlobeIcon";
@@ -8,6 +8,11 @@ import HeaderListSignedIn from "../HeaderListSignedIn/HeaderListSignedIn";
 import "./HeaderList.scss";
 export default function HeaderList() {
   const { userInfo } = useSelector((state) => state.userReducer);
+  // In case userInfo change but not trigger rerender
+  const [signedIn, setSignedIn] = useState(!!userInfo);
+  useEffect(() => {
+    setSignedIn(!!userInfo);
+  }, [userInfo]);
   const renderNotSignIn = () => (
     <>
       {" "}
@@ -56,8 +61,8 @@ export default function HeaderList() {
             Become a Seller
           </a>
         </li>
-        {userInfo?.name
-          ? renderSignedIn(userInfo.name, userInfo.avatar)
+        {signedIn && userInfo?.name
+          ? renderSignedIn(userInfo?.name, userInfo.avatar)
           : renderNotSignIn()}
       </ul>
     </nav>

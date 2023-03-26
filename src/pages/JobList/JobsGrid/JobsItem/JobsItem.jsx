@@ -21,14 +21,13 @@ const Styled = styled.div`
   }
 `;
 // Styled.displayName = "JobsItem"
-export default function JobsItem({ job, avatar, meta }) {
-  const seller = { name: meta.sellerName, avatar };
+export default function JobsItem({ job, seller }) {
   const {
     id: jobId,
-    reviewCount,
+    review_count: reviewCount,
     name: jobName,
     rating,
-    thumbUrl,
+    thumb_url: thumbUrl,
     price,
   } = job;
   const navigate = useNavigate();

@@ -3,12 +3,14 @@ import { ShareAltOutlined, FlagOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { styles } from "../../../constants/styles";
 import AddToWishList from "../../../components/Home/AddToWishList/AddToWishList";
+import { useParams } from "react-router-dom";
 
 export default function JobsDetailActions() {
+  const {jobId} = useParams();
   return (
     <Styled>
       <div className="jobActions-item heart">
-        <AddToWishList added={false} />
+        <AddToWishList added={false} jobId={jobId}/>
       </div>
       <div className="jobActions-item regular">
         <FlagOutlined />

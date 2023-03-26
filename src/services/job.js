@@ -10,11 +10,21 @@ const getJobById = async (id) => {
   // axios
 };
 
+const getJobsApi = async () => request({ method: "GET", url: "job/get-jobs" });
+
+const getJobsByUserApi = async ({ userId, userName }) =>
+  request({
+    method: "GET",
+    url: `/job/get-jobs-by-user?userId=${userId || ""}&userName=${userName || ""}`,
+  });
+
 const getLovedJob = async ({ userId, jobId }) =>
   request({
     url: `job/get-loved-job?userId=${userId}&jobId=${jobId}`,
     method: "GET",
   });
+const getLovedJobByUserIdApi = async (userId) =>
+  request({ method: "GET", url: `job/get-loved-job-by-user-id/${userId}` });
 
 const addLovedJob = async (userId, jobId) =>
   request({
@@ -30,4 +40,12 @@ const removeLovedJob = async (userId, jobId) =>
     data: { userId, jobId },
   });
 
-export { getJobById, getLovedJob, addLovedJob, removeLovedJob };
+export {
+  getJobsApi,
+  getJobById,
+  getJobsByUserApi,
+  getLovedJob,
+  getLovedJobByUserIdApi,
+  addLovedJob,
+  removeLovedJob,
+};

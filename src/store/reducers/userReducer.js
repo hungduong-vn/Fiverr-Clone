@@ -14,18 +14,18 @@ const userReducer = (state = DEFAULT_STATE, { type, payload }) => {
       console.log("SET_USER: ", payload);
       state.userInfo = { ...payload };
       localStorage.setItem(USER_INFO_KEY, JSON.stringify(payload));
-      return state;
+      return { ...state };
     case REMOVE_USER:
       console.log("REMOVE_USER");
       state.userInfo = payload;
       localStorage.removeItem(USER_INFO_KEY);
-      return state;
+      return { ...state };
     case UPDATE_USER:
       console.log("UPDATE_USER", payload);
       const newUser = { ...state.userInfo, ...payload };
       state.userInfo = newUser;
       localStorage.setItem(USER_INFO_KEY, JSON.stringify(newUser));
-      return state;
+      return { ...state };
     default:
       return state;
   }

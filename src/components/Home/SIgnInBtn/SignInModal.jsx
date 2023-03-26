@@ -5,10 +5,13 @@ import styled from "styled-components";
 import { signInApi } from "../../../services/auth";
 import { useDispatch } from "react-redux";
 import { setUserAction } from "../../../store/actions/user.actions";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function SignInModal({ closeModal }) {
   const dispatch = useDispatch();
   const [showError, setShowError] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
   const onFinish = async (values) => {
     try {
       const { identifier, password } = values;
@@ -26,7 +29,7 @@ export default function SignInModal({ closeModal }) {
       setShowError(false);
       closeModal();
       message.success(`Welcome back ${userInfo.name}`);
-      // navigate(`/user/${userInfo.name}`);
+      navigate(location.pathname);
     } catch (error) {
       setShowError(true);
     }
@@ -42,7 +45,9 @@ export default function SignInModal({ closeModal }) {
         onFinish={onFinish}
       >
         {showError && (
-          <p className="text-danger">(*) Incorrect Email/Username and Password!</p>
+          <p className="text-danger">
+            (*) Incorrect Email/Username and Password!
+          </p>
         )}
         <Form.Item
           name="identifier"

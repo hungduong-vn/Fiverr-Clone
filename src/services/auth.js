@@ -20,4 +20,9 @@ const checkUsernameExistedApi = (data) =>
 const checkEmailExistedApi = (data) =>
   request({ url: "auth/check-email-existed", method: "POST", data });
 
-export { signInApi, signUpApi, checkUsernameExistedApi, checkEmailExistedApi };
+export {
+  signInApi,
+  signUpApi,
+  checkUsernameExistedApi,
+  checkEmailExistedApi,
+};
