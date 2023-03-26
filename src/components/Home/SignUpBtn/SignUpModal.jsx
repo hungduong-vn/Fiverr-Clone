@@ -102,12 +102,28 @@ export default function SignUpModal({ closeModal }) {
             placeholder="Confirm Password"
           />
         </Form.Item>
-        <Form.Item name="birthday">
+        <Form.Item
+          name="birthday"
+          rules={[
+            {
+              required: true,
+              message: "Missing birthday",
+            },
+          ]}
+        >
           <DatePicker placeholder="Select your Birthday" />
         </Form.Item>
         <Row gutter={10}>
           <Col span={13}>
-            <Form.Item name="nationality">
+            <Form.Item
+              name="nationality"
+              rules={[
+                {
+                  required: true,
+                  message: "Missing nationality",
+                },
+              ]}
+            >
               <Select placeholder="Your Nationality">
                 {nations.map((nation, idx) => (
                   <Select.Option key={idx} value={nation}>
@@ -118,7 +134,15 @@ export default function SignUpModal({ closeModal }) {
             </Form.Item>
           </Col>
           <Col span={11}>
-            <Form.Item name="gender">
+            <Form.Item
+              name="gender"
+              rules={[
+                {
+                  required: true,
+                  message: "Missing gender",
+                },
+              ]}
+            >
               <Select placeholder="Your Gender">
                 <Select.Option value={0}>Male</Select.Option>
                 <Select.Option value={1}>Female</Select.Option>
