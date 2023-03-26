@@ -1,5 +1,7 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
+import AuthenticateGuard from "../guards/Authenticate.guard";
+import AuthorizeGuard from "../guards/Authorize.guard";
 import HomeLayout from "../layouts/Home/HomeLayout";
 import HomePage from "../pages/HomePage/HomePage";
 import JobCategories from "../pages/JobCategories/JobCategories";
@@ -19,8 +21,20 @@ export default function Router() {
         { path: "/jobs", search: "?query", element: <JobListPage /> },
         { path: "/categories/:jobCatId", element: <JobCategories /> },
         { path: "/user/:userName", element: <UserProfile /> },
-        { path: "/profile/:userName", element: <EditProfile /> },
-        { path: "/user/:userName/:jobId", element: <JobDetail /> },
+        // { path: "/profile/:userName", element: <EditProfile /> },
+        // { path: "/user/:userName/:jobId", element: <JobDetail /> },
+        {
+          path: "/",
+          element: <AuthenticateGuard />,
+          children: [
+            { path: "/user/:userName/:jobId", element: <JobDetail /> },
+          ],
+        },
+        {
+          path: "/",
+          element: <AuthorizeGuard />,
+          children: [{ path: "/profile/:userName", element: <EditProfile /> }],
+        },
       ],
     },
     { path: "*", element: <NotFound /> },
