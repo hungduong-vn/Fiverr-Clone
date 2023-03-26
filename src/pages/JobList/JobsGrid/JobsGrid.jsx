@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { jobs } from "./data";
+import { useAsync } from "../../../hooks/useAsync";
+import { getJobsApi } from "../../../services/job";
 import JobsItem from "./JobsItem/JobsItem";
 
 const Styled = styled.div`
@@ -33,13 +34,15 @@ const Styled = styled.div`
 `;
 
 export default function JobsGrid() {
+  const { state: jobList } = useAsync({ service: getJobsApi });
+  console.log({ jobList });
   return (
     <Styled className="content-row">
       <div className="jobs-wrapper">
-        {jobs.map((ele, idx) => {
-          // console.log({ele});
-          const { job, avatar, ...meta } = ele;
-          return <JobsItem job={job} avatar={avatar} key={idx} meta={meta} />;
+        {jobList?.map((job, idx) => {
+          // console.log({job});
+          const { seller, ...jobInfo } = job;
+          return <JobsItem job={jobInfo} seller={seller} key={idx} />;
         })}
       </div>
     </Styled>
