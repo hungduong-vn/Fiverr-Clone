@@ -23,12 +23,11 @@ export default function Router() {
         { path: "/user/:userName", element: <UserProfile /> },
         // { path: "/profile/:userName", element: <EditProfile /> },
         // { path: "/user/:userName/:jobId", element: <JobDetail /> },
+        { path: "/user/:userName/:jobId", element: <JobDetail /> },
         {
           path: "/",
           element: <AuthenticateGuard />,
-          children: [
-            { path: "/user/:userName/:jobId", element: <JobDetail /> },
-          ],
+          children: [],
         },
         {
           path: "/",
