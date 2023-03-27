@@ -22,7 +22,7 @@ export default function JobOverviewTop({ avatar, name }) {
       />
       <div className="seller-info">
         <Link to={`/user/${name || "admin_fiverr"}`} className="seller-name ">
-          admin
+          {name || "admin_fiverr"}
         </Link>
         <div className="seller-badge ">Top Rated Seller</div>
       </div>
