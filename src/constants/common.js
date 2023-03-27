@@ -8,4 +8,4 @@ export const breakpoints = {
 
 export const userRole = { admin: "admin", seller: "seller", user: "user" };
 
-export const BASE_URL = "https://103.176.111.241:8080/api/";
+export const BASE_URL = "https://saltair.site/api/";
