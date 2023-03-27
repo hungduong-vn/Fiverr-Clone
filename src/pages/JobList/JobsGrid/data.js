@@ -134,4 +134,31 @@ export const jobs = [
       name: "admin_fiverr",
     },
   },
+  {
+    id: 7,
+    job: {
+      id: 7,
+      name: "I will develop customized websites from scratch",
+      review_count: 55,
+      price: 30,
+      sellerId: 1,
+      thumb_url: "https://fiverrnew.cybersoft.edu.vn/images/cv6.jpg",
+      longDescription:
+        "\r\nWelcome to our Social Media Posts Design.\r\n\r\nWe understand the client's needs and assist through the whole process with professionalism.\r\n\r\nWe are experienced in creating social media graphic content for clients all over the world, for business, products, and personal brands.\r\n\r\nWe can assist you to improve the appearance of your social media presence.",
+      serviceId: 5,
+      shortDescription:
+        "US$30\r\nSave up to 10% with Subscribe to Save\r\nBASIC 3 unique social media posts with the most attractive content that will transform your business.\r\n\r\n2 Days Delivery\r\n3 social posts created",
+      rating: 2,
+    },
+    jobCategoryName: "Programming & Tech",
+    jobCategoryId: 3,
+    jobSubCategoryName: "Websites",
+    serviceName: "Website Development",
+    sellerName: "admin_fiverr",
+    seller: {
+      avatar:
+      "https://i.pravatar.cc/300?img=3",
+      name: "j_duong",
+    },
+  },
 ];
